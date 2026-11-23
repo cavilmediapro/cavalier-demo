@@ -1874,6 +1874,17 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 @media(prefers-reduced-motion:reduce){.pb.flip .pb-row{animation:none}}
 </style>
 
+<style id="cav-backdrop">
+/* ══ HERO BACKDROP — guests behind the burger, kept quiet (23 Nov 2026) ══
+   To undo: delete this block, the CAV_BD script and the BD lines in the hero draw(). */
+.bd-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:120;display:grid;gap:4px;padding:6px;background:#1A1A18;border:2px solid #F2B43C;box-shadow:0 8px 30px rgba(0,0,0,.35);max-width:calc(100vw - 20px)}
+.bd-switch > div{display:flex;align-items:center;gap:3px;overflow-x:auto}
+.bd-switch span{font:800 .62rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:#F2B43C;min-width:52px;padding:0 6px}
+.bd-switch button{font:700 .72rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;color:#F5F0E6;background:transparent;border:0;padding:8px 10px;cursor:pointer;white-space:nowrap}
+.bd-switch button[aria-pressed="true"]{background:#6B1523}
+@media(max-width:768px){.bd-switch{bottom:72px;width:calc(100vw - 20px)}}
+</style>
+
 <!-- NAV -->
 <header id="navbar">
   <div class="nav-inner">
@@ -1904,6 +1915,98 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
   </nav>
 </header>
 
+<script>
+/* ══ HERO BACKDROP ══ */
+(function(){
+  var q = new URLSearchParams(location.search);
+  var look = q.get('look') || 'old', photo = q.get('photo') || 'fb-35';
+  var photos = {}, bg = document.createElement('canvas'), bgKey = '';
+  var kc = document.createElement('canvas'), kx = kc.getContext('2d', { willReadFrequently: true }), kf = -1, kCream = '';
+  function img(name){
+    if (!photos[name]) { var im = new Image(); im.onload = function(){ bgKey = ''; nudge(); }; im.src = 'people/' + name + '.jpg'; photos[name] = im; }
+    return photos[name];
+  }
+  function nudge(){ window.dispatchEvent(new Event('resize')); }
+  function cover(c, im, x, y, w, h, fx, fy){
+    var r = Math.max(w / im.naturalWidth, h / im.naturalHeight), iw = im.naturalWidth * r, ih = im.naturalHeight * r;
+    c.drawImage(im, x + (w - iw) * (fx == null ? .5 : fx), y + (h - ih) * (fy == null ? .5 : fy), iw, ih);
+  }
+  var CREAM = [245, 240, 230];
+  function rgba(a){ return 'rgba(' + CREAM.join(',') + ',' + a + ')'; }
+  function render(vw, vh, dpr, cx, cy, mobile){
+    var im = img(photo); bg.width = Math.round(vw * dpr); bg.height = Math.round(vh * dpr);
+    var c = bg.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.fillStyle = rgba(1); c.fillRect(0, 0, vw, vh);
+    if (!im.complete || !im.naturalWidth) return;
+    if (look === 'window') {
+      var ww = Math.min(vw * (mobile ? .9 : .5), 820), wh = Math.min(vh * (mobile ? .42 : .66), 620),
+          wx = cx - ww / 2, wy = cy - wh / 2 + (mobile ? vh * .13 : 0);
+      c.save(); c.beginPath(); c.rect(wx, wy, ww, wh); c.clip();
+      c.filter = 'blur(5px) saturate(.75)'; cover(c, im, wx - 20, wy - 20, ww + 40, wh + 40, .55, .6); c.filter = 'none';
+      c.fillStyle = rgba(.5); c.fillRect(wx, wy, ww, wh);
+      c.restore();
+      var cols = mobile ? 3 : 4, rows = 3, bar = 7, fr = 12;
+      c.fillStyle = 'rgba(26,26,24,.78)';
+      for (var i = 1; i < cols; i++) c.fillRect(wx + ww * i / cols - bar / 2, wy, bar, wh);
+      for (var j = 1; j < rows; j++) c.fillRect(wx, wy + wh * j / rows - bar / 2, ww, bar);
+      c.lineWidth = fr; c.strokeStyle = 'rgba(26,26,24,.85)'; c.strokeRect(wx - fr / 2, wy - fr / 2, ww + fr, wh + fr);
+      return;
+    }
+    var f = { wash: 'blur(1.5px) saturate(.85)', old: 'grayscale(1) sepia(.6) contrast(.92) blur(1px)', soft: 'blur(16px) saturate(1.1)' }[look];
+    c.filter = f; cover(c, im, -30, -30, vw + 60, vh + 60, .55, .55); c.filter = 'none';
+    c.fillStyle = rgba({ wash: .8, old: .64, soft: .52 }[look]); c.fillRect(0, 0, vw, vh);
+    if (look === 'old') { c.fillStyle = 'rgba(107,21,35,.06)'; c.fillRect(0, 0, vw, vh); }
+    // keep the burger's own ground quiet and the headline readable
+    var rg = c.createRadialGradient(cx, cy, 0, cx, cy, Math.min(vw, vh) * .48);
+    rg.addColorStop(0, rgba(look === 'soft' ? .55 : .7)); rg.addColorStop(1, rgba(0));
+    c.fillStyle = rg; c.fillRect(0, 0, vw, vh);
+    var lg = mobile ? c.createLinearGradient(0, 0, 0, vh) : c.createLinearGradient(0, 0, vw, 0);
+    lg.addColorStop(0, rgba(.85)); lg.addColorStop(.46, rgba(0));
+    c.fillStyle = lg; c.fillRect(0, 0, vw, vh);
+  }
+  window.CAV_BD = {
+    on: function(){ return look !== 'off'; },
+    paint: function(ctx, vw, vh, dpr, cx, cy, mobile){
+      var k = [look, photo, vw, vh, dpr, cx, cy, mobile].join('|');
+      if (!(vw > 0 && vh > 0)) return;
+      if (k !== bgKey) { render(vw, vh, dpr, cx, cy, mobile); bgKey = k; }
+      if (!bg.width || !bg.height) return;
+      ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(bg, 0, 0); ctx.restore();
+    },
+    /* key the cream out of a frame: soft alpha by distance from the frame's own background, then de-fringe */
+    key: function(im, f, col){
+      var cr = (col || CREAM).join(',');
+      if (f === kf && cr === kCream) return kc;
+      kf = f; kCream = cr; var b = col || CREAM;
+      kc.width = im.naturalWidth; kc.height = im.naturalHeight;
+      kx.drawImage(im, 0, 0);
+      try {
+        var d = kx.getImageData(0, 0, kc.width, kc.height), p = d.data;
+        for (var i = 0; i < p.length; i += 4) {
+          var dr = p[i] - b[0], dg = p[i+1] - b[1], db = p[i+2] - b[2], dist = Math.sqrt(dr*dr + dg*dg + db*db);
+          var a = dist <= 9 ? 0 : dist >= 46 ? 1 : (dist - 9) / 37;
+          if (a < 1 && a > 0) {
+            p[i] = Math.max(0, Math.min(255, (p[i] - b[0] * (1 - a)) / a));
+            p[i+1] = Math.max(0, Math.min(255, (p[i+1] - b[1] * (1 - a)) / a));
+            p[i+2] = Math.max(0, Math.min(255, (p[i+2] - b[2] * (1 - a)) / a));
+          }
+          p[i+3] = Math.round(a * 255);
+        }
+        kx.putImageData(d, 0, 0);
+      } catch (e) {}
+      return kc;
+    }
+  };
+  function mark(){ document.querySelectorAll('.bd-switch [data-look]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.look === look ? 'true' : 'false'); });
+    document.querySelectorAll('.bd-switch [data-photo]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.photo === photo ? 'true' : 'false'); }); }
+  document.querySelectorAll('.bd-switch button').forEach(function(b){ b.addEventListener('click', function(){
+    if (b.dataset.look) look = b.dataset.look; if (b.dataset.photo) photo = b.dataset.photo;
+    kf = -1; bgKey = ''; img(photo); mark(); nudge(); }); });
+  if (look !== 'off') img(photo);
+  ['fb-35','fb-34','fb-45','fb-21'].forEach(function(n){ if (false) img(n); });
+  mark();
+})();
+</script>
 <!-- ① HERO -->
 <section id="hero" class="bh" aria-label="The Monster Jam Burger, layer by layer">
   <div class="bh-pin">
@@ -3044,6 +3147,13 @@ window.addEventListener('scroll', () => {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     var c = bgc[f], solid = c ? 'rgb(' + c.join(',') + ')' : BG, clear = c ? 'rgba(' + c.join(',') + ',0)' : 'rgba(245,240,230,0)';
     if (lastSolid !== solid) { pin.style.backgroundColor = solid; lastSolid = solid; }
+    var BD = window.CAV_BD;
+    if (BD && BD.on()) {
+      BD.paint(ctx, vw, vh, dpr, cx0, cy0, mobile, solid);
+      var kd = BD.key(imgs[f], f, c); if (kd.width) ctx.drawImage(kd, x, y, w, h);
+      stage.style.transform = 'translate(' + (x) + 'px,' + (y) + 'px)';
+      return;
+    }
     ctx.fillStyle = solid; ctx.fillRect(0, 0, vw, vh);
     ctx.drawImage(imgs[f], x, y, w, h);
     // feather the crop edges into the page cream so the clip's background never shows a seam
