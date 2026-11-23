@@ -1885,6 +1885,176 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 @media(max-width:768px){.bd-switch{bottom:72px;width:calc(100vw - 20px)}}
 </style>
 
+<style id="cav-menuopts">
+/* ══ WHAT WE SERVE · menu options (23 Nov 2026). To undo: delete this block, the .mo sections and the menu-options script. ══ */
+.mo{--fb:#1A1A18;--amb:#F2B43C;padding:6rem 1.5rem 5rem;max-width:1240px;margin:0 auto;scroll-margin-top:64px}
+.mo-head{text-align:center;margin-bottom:2.4rem}
+.mo-head h2{font:800 clamp(2.4rem,5vw,3.6rem)/1 var(--font-display);text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin:.9rem 0 .6rem}
+.mo-sub{font:500 1rem/1.5 var(--font-body);color:rgba(26,26,24,.6);max-width:34rem;margin:0 auto}
+.mo-foot{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:center;margin-top:2.6rem;font:700 .8rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:rgba(26,26,24,.55)}
+.mo [hidden]{display:none!important}
+
+/* 1 · menu board */
+.mb-switch{display:flex;justify-content:center;gap:0;margin:0 auto 1.4rem;width:max-content;border:3px solid var(--fb)}
+.mb-switch button{font:800 .85rem/1 var(--font-cond);letter-spacing:.18em;text-transform:uppercase;padding:.85rem 1.6rem;border:0;background:transparent;color:var(--fb);cursor:pointer}
+.mb-switch button[aria-selected="true"]{background:var(--fb);color:var(--cream)}
+.mb-frame{position:relative;background:var(--fb);border:10px solid var(--maroon);box-shadow:inset 0 0 0 3px #0d0d0c,0 24px 60px -30px rgba(0,0,0,.6);padding:2.6rem 2.6rem 2.2rem;color:var(--cream);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 34px)}
+.mb-bolts i{position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#d9d2c3,#7a746a);box-shadow:0 1px 0 #000}
+.mb-bolts i:nth-child(1){top:10px;left:10px}.mb-bolts i:nth-child(2){top:10px;right:10px}.mb-bolts i:nth-child(3){bottom:10px;left:10px}.mb-bolts i:nth-child(4){bottom:10px;right:10px}
+.mb-face{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 2.8rem}
+.mb-col+.mb-col{border-left:1px solid rgba(245,240,230,.14);padding-left:2.8rem;margin-left:-1.4rem}
+.mb-cat+.mb-cat{margin-top:2rem}
+.mb-cat h3{font:800 1.45rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.08em;color:var(--amb);margin:0 0 .5rem;display:flex;justify-content:space-between;align-items:baseline}
+.mb-note{font:500 .78rem/1.45 var(--font-body);color:rgba(245,240,230,.55);margin:0 0 .8rem}
+.mb-list{list-style:none;margin:0;padding:0}
+.mb-list li{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:0 .5rem;padding:.55rem 0}
+.mb-n{font:700 1.06rem/1.2 var(--font-cond);letter-spacing:.1em;text-transform:uppercase;color:#FDFAF5}
+.mb-dots{border-bottom:2px dotted rgba(245,240,230,.28);transform:translateY(-.3em)}
+.mb-p{font:700 1.2rem/1 var(--font-cond);color:var(--amb);letter-spacing:.04em}
+.mb-d,.mb-s,.mb-pills{grid-column:1/-1;font:400 .86rem/1.45 var(--font-body);color:rgba(245,240,230,.62);margin-top:.2rem}
+.mb-s{font-size:.78rem;color:rgba(245,240,230,.45)}
+.mb-tag{font:700 .62rem/1 var(--font-cond);font-style:normal;letter-spacing:.14em;color:var(--fb);background:var(--amb);padding:.22rem .4rem;margin-left:.5rem;vertical-align:.15em}
+.mb-pills{display:flex;flex-wrap:wrap;gap:.35rem}.mb-pills em,.mo-pills em{font:700 .72rem/1 var(--font-cond);font-style:normal;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(245,240,230,.35);padding:.35rem .55rem;color:var(--cream)}
+.mb-dk h4{font:700 .78rem/1 var(--font-cond);letter-spacing:.22em;text-transform:uppercase;color:rgba(245,240,230,.5);margin:1.2rem 0 .4rem}
+.mb-dk ul{list-style:none;margin:0;padding:0}.mb-dk li{display:flex;justify-content:space-between;font:600 1rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;padding:.42rem 0;border-bottom:1px dotted rgba(245,240,230,.18)}
+.mb-dk b{color:var(--amb)}
+.mb-ck li{display:block}.mb-ck .mb-d{display:block}
+.mb-soft{font:600 1.02rem/1.9 var(--font-cond);letter-spacing:.1em;text-transform:uppercase;color:#FDFAF5}
+@media(max-width:900px){.mb-face{grid-template-columns:1fr}.mb-col+.mb-col{border-left:0;border-top:1px solid rgba(245,240,230,.14);padding:1.6rem 0 0;margin:1.6rem 0 0}.mb-frame{padding:1.8rem 1.2rem;border-width:7px}}
+
+/* 2 · photo bays */
+.by-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.4rem}
+.by-card{grid-column:span 2;background:#FDFAF5;border:1px solid rgba(26,26,24,.1);display:flex;flex-direction:column}
+.by-card.by-big{grid-column:span 3}
+.by-door{position:relative;margin:0;aspect-ratio:16/10;overflow:hidden;background:var(--fb);border:8px solid var(--fb)}
+.by-big .by-door{aspect-ratio:16/9}
+.by-door img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.by-card:hover .by-door img{transform:scale(1.04)}
+.by-mull{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent calc(33.3% - 2px),rgba(26,26,24,.75) calc(33.3% - 2px) calc(33.3% + 2px),transparent calc(33.3% + 2px) calc(66.6% - 2px),rgba(26,26,24,.75) calc(66.6% - 2px) calc(66.6% + 2px),transparent calc(66.6% + 2px))}
+.by-door figcaption{position:absolute;left:0;bottom:0;right:0;display:flex;align-items:baseline;gap:.7rem;padding:2.4rem 1rem .8rem;background:linear-gradient(transparent,rgba(13,13,12,.85));color:#FDFAF5}
+.by-door figcaption i{font:700 .68rem/1 var(--font-cond);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--amb)}
+.by-door figcaption b{font:800 1.35rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.06em}
+.by-door figcaption em{margin-left:auto;font:700 .95rem/1 var(--font-cond);font-style:normal;letter-spacing:.08em;color:var(--amb)}
+.by-body{padding:1.1rem 1.3rem 1.3rem}
+.by-note{font:500 .8rem/1.45 var(--font-body);color:rgba(26,26,24,.55);margin:0 0 .5rem}
+.by-list{list-style:none;margin:0;padding:0}
+.by-list li{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:0 .5rem;padding:.6rem 0;border-top:1px solid rgba(26,26,24,.08)}
+.by-list li:first-child{border-top:0}
+.by-n{font:700 1rem/1.2 var(--font-cond);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.by-dots{border-bottom:2px dotted rgba(26,26,24,.2);transform:translateY(-.3em)}
+.by-p{font:700 1.1rem/1 var(--font-cond);color:var(--maroon)}
+.by-d,.by-s,.by-pills{grid-column:1/-1;font:400 .85rem/1.45 var(--font-body);color:rgba(26,26,24,.6);margin-top:.15rem}
+.by-s{font-size:.76rem;color:rgba(26,26,24,.45)}
+.by-tag{font:700 .6rem/1 var(--font-cond);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:#FDFAF5;background:var(--maroon);padding:.2rem .4rem;margin-left:.45rem;vertical-align:.15em}
+.by-pills{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem}.by-pills em{font:700 .72rem/1 var(--font-cond);font-style:normal;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(107,21,35,.35);color:var(--maroon);padding:.35rem .55rem}
+.by-bar{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);margin-top:1.4rem;background:var(--fb);color:var(--cream)}
+.by-bar-door{aspect-ratio:auto;height:100%;min-height:340px;border-color:var(--fb)}
+.by-bar-body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2rem;padding:2rem 2.2rem}
+.by-bar h4{font:700 .8rem/1 var(--font-cond);letter-spacing:.22em;text-transform:uppercase;color:var(--amb);margin:0 0 .7rem}
+.by-dk+.by-dk{margin-top:1.3rem}
+.by-bar .by-list li{display:block;border-color:rgba(245,240,230,.1);padding:.5rem 0}.by-bar .by-n{color:#FDFAF5}.by-bar .by-d{display:block;color:rgba(245,240,230,.55)}
+.by-dk ul{list-style:none;margin:0;padding:0}.by-dk li{display:flex;justify-content:space-between;font:600 .95rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;padding:.36rem 0;border-bottom:1px dotted rgba(245,240,230,.16)}.by-dk b{color:var(--amb)}
+.by-soft{font:600 .9rem/1.7 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;margin:0}
+@media(max-width:960px){.by-grid{grid-template-columns:1fr 1fr}.by-card,.by-card.by-big{grid-column:span 1}.by-card.by-big{grid-column:span 2}.by-bar{grid-template-columns:1fr}.by-bar-door{min-height:240px}.by-bar-body{grid-template-columns:1fr}}
+@media(max-width:620px){.by-grid{grid-template-columns:1fr}.by-card.by-big,.by-card{grid-column:span 1}.by-bar-body{padding:1.5rem 1.2rem}}
+
+/* 3 · pump picker */
+.pu-island{display:grid;grid-template-columns:240px minmax(0,1fr);background:var(--fb);border:10px solid var(--fb);box-shadow:0 24px 60px -30px rgba(0,0,0,.55)}
+.pu-grades{display:flex;flex-direction:column;gap:6px;padding:6px;background:#0f0f0e}
+.pu-g{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:.15rem .7rem;align-items:center;text-align:left;padding:.85rem 1rem;background:#26241f;border:0;border-left:5px solid transparent;color:var(--cream);cursor:pointer;transition:background .2s}
+.pu-g i{grid-row:span 2;font:800 1.5rem/1 var(--font-cond);font-style:normal;color:rgba(245,240,230,.25)}
+.pu-g b{font:800 1.05rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.06em}
+.pu-g span{font:700 1.05rem/1 var(--font-cond);letter-spacing:.06em;color:var(--amb);font-variant-numeric:tabular-nums}
+.pu-g small{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,230,.45);margin-right:.2rem}
+.pu-g:hover{background:#312e27}
+.pu-g[aria-selected="true"]{background:var(--maroon);border-left-color:var(--amb)}.pu-g[aria-selected="true"] i{color:var(--amb)}
+.pu-panes{background:#FDFAF5;min-height:440px}
+.pu-pane{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);height:100%;animation:puIn .45s cubic-bezier(.2,.7,.2,1)}
+@keyframes puIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pu-photo{margin:0;background:var(--fb);border-right:8px solid var(--fb)}.pu-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.pu-body{padding:2rem 2.2rem}
+.pu-body h3{font:800 1.7rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.06em;color:var(--maroon);margin:0 0 .5rem}
+.pu-note{font:500 .82rem/1.45 var(--font-body);color:rgba(26,26,24,.55);margin:0 0 .7rem}
+.pu-list{list-style:none;margin:0;padding:0}
+.pu-list li{display:grid;grid-template-columns:auto 1fr auto;align-items:baseline;gap:0 .5rem;padding:.65rem 0;border-top:1px solid rgba(26,26,24,.08)}
+.pu-list li:first-child{border-top:0}
+.pu-n{font:700 1.05rem/1.2 var(--font-cond);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.pu-dots{border-bottom:2px dotted rgba(26,26,24,.2);transform:translateY(-.3em)}
+.pu-p{font:700 1.15rem/1 var(--font-cond);color:var(--maroon)}
+.pu-d,.pu-s,.pu-pills{grid-column:1/-1;font:400 .88rem/1.45 var(--font-body);color:rgba(26,26,24,.6);margin-top:.15rem}
+.pu-s{font-size:.78rem;color:rgba(26,26,24,.45)}
+.pu-tag{font:700 .6rem/1 var(--font-cond);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:#FDFAF5;background:var(--maroon);padding:.2rem .4rem;margin-left:.45rem;vertical-align:.15em}
+.pu-pills{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.45rem}.pu-pills em{font:700 .74rem/1 var(--font-cond);font-style:normal;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(107,21,35,.35);color:var(--maroon);padding:.4rem .6rem}
+.pu-ck li{display:block}.pu-ck .pu-d{display:block}
+.pu-beer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.2rem;padding-top:1rem;border-top:2px solid var(--fb)}
+.pu-dk h4{font:700 .74rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:var(--maroon);margin:0 0 .4rem}
+.pu-dk ul{list-style:none;margin:0;padding:0}.pu-dk li{display:flex;justify-content:space-between;gap:.4rem;font:600 .86rem/1.15 var(--font-cond);letter-spacing:.05em;text-transform:uppercase;padding:.28rem 0;border-bottom:1px dotted rgba(26,26,24,.15)}
+@media(max-width:900px){.pu-island{grid-template-columns:1fr;border-width:6px}.pu-grades{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory}.pu-g{flex:0 0 auto;scroll-snap-align:start;border-left:0;border-bottom:4px solid transparent}.pu-g[aria-selected="true"]{border-bottom-color:var(--amb)}
+  .pu-pane{grid-template-columns:1fr}.pu-photo{border-right:0;border-bottom:6px solid var(--fb);aspect-ratio:16/9}.pu-body{padding:1.4rem 1.2rem}.pu-beer{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.pu-beer{grid-template-columns:1fr}}
+
+/* 4 · item cards */
+.ic-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:0 auto 1.8rem}
+.ic-chips button{font:800 .8rem/1 var(--font-cond);letter-spacing:.16em;text-transform:uppercase;padding:.8rem 1.15rem;border:2px solid var(--fb);background:transparent;color:var(--fb);cursor:pointer;transition:background .2s,color .2s}
+.ic-chips button:hover{background:rgba(26,26,24,.06)}
+.ic-chips button[aria-selected="true"]{background:var(--maroon);border-color:var(--maroon);color:#FDFAF5}
+.ic-legend{text-align:center;font:600 .78rem/1.4 var(--font-body);color:#8A1A2D;background:rgba(242,180,60,.18);padding:.5rem .9rem;margin:-.6rem auto 1.6rem;width:max-content;max-width:100%}
+.ic-note{text-align:center;font:500 .88rem/1.5 var(--font-body);color:rgba(26,26,24,.6);margin:0 auto 1.4rem;max-width:44rem}
+.ic-pane{animation:puIn .45s cubic-bezier(.2,.7,.2,1)}
+.ic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.4rem}
+.ic-card{background:#FDFAF5;border:1px solid rgba(26,26,24,.1);box-shadow:0 14px 30px -22px rgba(26,26,24,.45);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.ic-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(26,26,24,.55)}
+.ic-ph{position:relative;margin:0;aspect-ratio:1/1;overflow:hidden;background:var(--fb)}
+.ic-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.ic-card:hover .ic-ph img{transform:scale(1.05)}
+.ic-flag{position:absolute;top:10px;left:10px;font:700 .64rem/1 var(--font-cond);font-style:normal;letter-spacing:.16em;text-transform:uppercase;background:var(--amb);color:var(--fb);padding:.35rem .5rem}
+.ic-none{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:.5rem;padding:1.3rem;color:#FDFAF5;
+  background:linear-gradient(transparent 62%,rgba(0,0,0,.25)),repeating-conic-gradient(rgba(255,255,255,.05) 0 25%,transparent 0 50%) 0 100%/28px 28px,var(--fb)}
+.ic-none i{font:700 .66rem/1 var(--font-cond);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--amb)}
+.ic-none b{font:800 1.45rem/1.05 var(--font-display);text-transform:uppercase;letter-spacing:.05em}
+.ic-body{padding:1rem 1.1rem 1.2rem}
+.ic-body h4{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;margin:0 0 .35rem;font:800 1.08rem/1.15 var(--font-display);text-transform:uppercase;letter-spacing:.04em;color:var(--ink)}
+.ic-p{font:700 1.15rem/1 var(--font-cond);color:var(--maroon);white-space:nowrap}
+.ic-d{font:400 .88rem/1.45 var(--font-body);color:rgba(26,26,24,.65);margin:0}
+.ic-s{font:400 .76rem/1.45 var(--font-body);color:rgba(26,26,24,.5);margin:.45rem 0 0}
+.ic-pills{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0 0}.ic-pills em{font:700 .72rem/1 var(--font-cond);font-style:normal;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(107,21,35,.35);color:var(--maroon);padding:.38rem .55rem}
+.ic-h{font:800 1.2rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.08em;color:var(--maroon);margin:2rem 0 1rem;display:flex;gap:.8rem;align-items:baseline}
+.ic-h:first-child{margin-top:0}.ic-h b{font:700 1rem/1 var(--font-cond);letter-spacing:.08em;color:var(--ink)}
+.ic-dgrid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1rem}
+.ic-dph{background:radial-gradient(circle at 50% 62%,rgba(242,180,60,.22),transparent 62%),var(--fb)}
+.ic-svg{position:absolute;inset:8%;width:84%;height:84%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ic-card:hover .ic-svg{transform:translateY(-4px) rotate(-2deg)}
+.ic-drink .ic-body{padding:.75rem .9rem .85rem}.ic-drink .ic-body h4{font-size:.95rem;margin:0}
+@media(max-width:620px){.ic-dgrid{grid-template-columns:1fr 1fr 1fr;gap:.6rem}.ic-drink .ic-body{padding:.5rem .55rem .6rem}.ic-drink .ic-body h4{font-size:.72rem}}
+.ic-drinks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.4rem;background:var(--fb);color:var(--cream);padding:2rem}
+.ic-dk h4{font:700 .8rem/1 var(--font-cond);letter-spacing:.22em;text-transform:uppercase;color:var(--amb);margin:0 0 .7rem}
+.ic-dk ul{list-style:none;margin:0;padding:0}.ic-dk li{display:flex;justify-content:space-between;font:600 .95rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;padding:.42rem 0;border-bottom:1px dotted rgba(245,240,230,.16)}.ic-dk b{color:var(--amb)}
+@media(max-width:900px){.ic-drinks{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.ic-grid{grid-template-columns:1fr 1fr;gap:.8rem}.ic-body{padding:.75rem .75rem .9rem}.ic-body h4{font-size:.9rem;flex-direction:column;gap:.3rem}.ic-d{font-size:.8rem}.ic-none{padding:.8rem}.ic-none b{font-size:1rem}
+  .ic-chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;margin-left:-1.5rem;margin-right:-1.5rem;padding:0 1.5rem}.ic-chips button{flex:0 0 auto}.ic-drinks{grid-template-columns:1fr;padding:1.4rem}.ic-legend{width:auto}}
+
+
+/* 4 · single scrolling row per category */
+.ic-row{position:relative}
+.ic-row .ic-grid{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:1.5rem;scroll-behavior:smooth;padding:.4rem 1.5rem 1.6rem;margin:0 -1.5rem;scrollbar-width:thin;scrollbar-color:var(--maroon) transparent;overscroll-behavior-x:contain}
+.ic-row .ic-grid::-webkit-scrollbar{height:6px}.ic-row .ic-grid::-webkit-scrollbar-thumb{background:var(--maroon)}
+.ic-row .ic-card{flex:0 0 270px;scroll-snap-align:start}
+
+.ic-arrow{position:absolute;top:calc(50% - .8rem);transform:translateY(-50%);z-index:2;width:48px;height:48px;border:0;background:var(--fb);color:#FDFAF5;font:800 1.2rem/1 var(--font-cond);cursor:pointer;box-shadow:0 10px 24px -10px rgba(0,0,0,.6);transition:opacity .25s,background .2s}
+.ic-arrow:hover{background:var(--maroon)}
+.ic-arrow[disabled]{opacity:0;pointer-events:none}
+.ic-prev{left:-14px}.ic-next{right:-14px}
+.ic-count{display:flex;justify-content:space-between;align-items:center;font:700 .72rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:rgba(26,26,24,.5);margin:-.6rem 0 .6rem}
+@media(max-width:620px){.ic-row .ic-card{flex-basis:72vw}.ic-row .ic-grid{gap:.8rem}.ic-arrow{display:none}}
+/* preview switcher */
+.mo-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:120;display:flex;align-items:center;gap:3px;padding:6px;background:#1A1A18;border:2px solid #F2B43C;box-shadow:0 8px 30px rgba(0,0,0,.35);max-width:calc(100vw - 20px);overflow-x:auto}
+.mo-switch span{font:800 .62rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:#F2B43C;padding:0 8px;white-space:nowrap}
+.mo-switch button{font:700 .74rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;color:#F5F0E6;background:transparent;border:0;padding:9px 11px;cursor:pointer;white-space:nowrap}
+.mo-switch button[aria-pressed="true"]{background:#6B1523}
+@media(max-width:768px){.mo-switch{bottom:72px}}
+</style>
+
 <!-- NAV -->
 <header id="navbar">
   <div class="nav-inner">
@@ -2088,323 +2258,16 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 </section>
 
 
-<!-- ② MENU OVERVIEW -->
-<section id="menu">
-  <div class="menu-overview-inner">
-
-    <div class="menu-overview-header fade-up">
-      <p class="section-label centered">What We Serve</p>
-      <h2>The Menu</h2>
-      <p class="menu-subtitle" style="color:rgba(26,26,24,.5)">Tap a category &nbsp;&middot;&nbsp; Real prices &nbsp;&middot;&nbsp; No surprises</p>
-    </div>
-
-    <!-- CATEGORY TABS — all 7 categories -->
-    <div class="menu-cat-tabs fade-up" id="menuCatTabs" style="transition-delay:.1s">
-      <button class="mcat-btn active"  onclick="switchMenuCat('wings')">Wings</button>
-      <button class="mcat-btn"         onclick="switchMenuCat('sandwiches')">Burgers &amp; Sandwiches</button>
-      <button class="mcat-btn"         onclick="switchMenuCat('pizza')">Pizza</button>
-      <button class="mcat-btn"         onclick="switchMenuCat('salads')">Salads</button>
-      <button class="mcat-btn"         onclick="switchMenuCat('bar')">Bar Menu</button>
-      <button class="mcat-btn"         onclick="switchMenuCat('softdrinks')">Soft Drinks</button>
-      <button class="mcat-btn"         onclick="switchMenuCat('kids')">Kids</button>
-    </div>
-
-    <!-- ══ WINGS ══ -->
-    <div id="mcat-wings" class="menu-cat-panel active fade-up" style="transition-delay:.15s">
-      <div class="menu-card">
-        <div class="menu-card-cat-title">Wings</div>
-        <div class="menu-card-section">
-          <div class="menu-card-note" style="padding:.25rem 0 .75rem">Six wings w/ choice of sauce &nbsp;&middot;&nbsp; Served with carrots &amp; celery</div>
-          <div class="menu-card-row rule-top">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">WINGS</div>
-              <div class="menu-card-options-pills">
-                <span class="option-pill">Buffalo</span>
-                <span class="option-pill">Garlic Parm</span>
-                <span class="option-pill">Korean BBQ</span>
-                <span class="option-pill">BBQ</span>
-              </div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>13</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ BURGERS & SANDWICHES ══ -->
-    <div id="mcat-sandwiches" class="menu-cat-panel fade-up" style="transition-delay:.15s">
-      <div class="menu-card">
-        <div class="menu-card-cat-title">Burgers &amp; Sandwiches</div>
-        <div class="menu-card-section">
-          <div class="menu-card-note">All served with fries, pasta salad, or side salad (+$1.50) &nbsp;&middot;&nbsp; Add cheese +$1.50</div>
-          <div class="menu-card-row rule-top">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">DOUBLE STACK ALL AMERICAN</div>
-              <div class="menu-card-desc">2 patties &ndash; lettuce &ndash; tomato &ndash; onion &ndash; pickle &ndash; mayo</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>15</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">RIB SANDWICH <span class="menu-card-tag">Limited Availability</span></div>
-              <div class="menu-card-desc">Boneless rib BBQ &ndash; pickle &ndash; onion</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>14</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">CHICKEN SANDWICH</div>
-              <div class="menu-card-desc">Fried or grilled chicken breast &ndash; lettuce &ndash; tomato &ndash; onion &ndash; pickle &ndash; mayo</div>
-              <div class="menu-card-subitem"><span class="star-icon">&#9733;</span> Buffalo Style &mdash; Buffalo sauce &ndash; bleu cheese crumbles</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>15</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">SANDWICH OF THE WEEK</div>
-              <div class="menu-card-desc">Ask your server</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>15</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ PIZZA ══ -->
-    <div id="mcat-pizza" class="menu-cat-panel fade-up" style="transition-delay:.15s">
-      <div class="menu-card">
-        <div class="menu-card-cat-title">Pizza</div>
-        <div class="menu-card-section">
-          <div class="menu-card-row rule-top">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">MARGHERITA</div>
-              <div class="menu-card-desc">House pizza sauce, fresh mozzarella &amp; basil</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>16</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">WHITE PIE</div>
-              <div class="menu-card-desc">Alfredo sauce base, shredded mozzarella, grated parmesan, Italian herbs</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>16</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">KICKIN' CHICKEN</div>
-              <div class="menu-card-desc">Grilled chicken, Canadian bacon, jalapeños, pineapple</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>18</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">FULL TANK</div>
-              <div class="menu-card-desc">Pepperoni, Italian sausage, ground beef, bacon</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>18</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">BUILD YOUR OWN</div>
-              <div class="menu-card-desc" style="margin-bottom:.4rem">Toppings $0.50 to $1.50 each</div>
-              <div class="menu-card-toppings">
-                Pepperoni &middot; Ground Beef &middot; Banana Pepper &middot; Grilled Chicken &middot; Green Pepper &middot; Olives &middot; Italian Sausage &middot; Onion &middot; Pineapple &middot; Bacon &middot; Mushroom &middot; Tomato &middot; Canadian Bacon &middot; Jalapeños &middot; Basil
-              </div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>15</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ SALADS ══ -->
-    <div id="mcat-salads" class="menu-cat-panel fade-up" style="transition-delay:.15s">
-      <div class="menu-card">
-        <div class="menu-card-cat-title" style="font-family:var(--font-display);font-style:italic">Salads</div>
-        <div class="menu-card-section">
-          <div class="menu-card-note">Dressings: Ranch &middot; Balsamic Vinaigrette &middot; Blue Cheese &middot; Greek &middot; Caesar &nbsp;&nbsp;&middot;&nbsp;&nbsp; Add grilled or fried chicken +$5</div>
-          <div class="menu-card-row rule-top">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">HOUSE</div>
-              <div class="menu-card-desc">Mixed greens, tomato, cucumber, onion, shredded cheddar cheese, boiled egg, bacon, croutons</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>11</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">CAESAR</div>
-              <div class="menu-card-desc">Romaine, Caesar dressing, croutons, grated parmesan</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>11</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">GREEK</div>
-              <div class="menu-card-desc">Mixed greens, tomato, cucumber, onion, green pepper, banana peppers, olives, feta w/ Greek dressing</div>
-            </div>
-            <div class="menu-card-price"><span class="price-dollar">$</span>11</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name"><span class="star-icon">&#9733;</span> DESSERT</div>
-              <div class="menu-card-desc">Ask your server</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ BAR MENU ══ -->
-    <div id="mcat-bar" class="menu-cat-panel fade-up" style="transition-delay:.15s">
-      <div class="menu-card menu-card-drinks">
-        <div class="menu-card-cat-title" style="color:var(--maroon)">Bar Menu</div>
-
-        <div class="menu-card-section">
-          <div class="menu-card-category-bold drinks-cat">DRAFT BEERS</div>
-          <div class="menu-drinks-rows">
-            <div class="drinks-row"><span>Miller Lite</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Blue Moon</span><span class="drinks-price">$6</span></div>
-            <div class="drinks-row"><span>Modelo</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Hazy IPA</span><span class="drinks-price">$6</span></div>
-          </div>
-        </div>
-
-        <div class="menu-card-section">
-          <div class="menu-card-category-bold drinks-cat">BOTTLED BEERS</div>
-          <div class="menu-drinks-rows">
-            <div class="drinks-row"><span>Michelob Ultra</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Bud</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Bud Light</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Coors Light</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Corona</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Miller High Life</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Natural Light</span><span class="drinks-price">$5</span></div>
-            <div class="drinks-row"><span>Stella</span><span class="drinks-price">$6</span></div>
-            <div class="drinks-row"><span>Angry Orchard</span><span class="drinks-price">$6</span></div>
-          </div>
-        </div>
-
-        <div class="menu-card-section">
-          <div class="menu-card-category-bold drinks-cat">CANNED BEERS</div>
-          <div class="menu-drinks-rows">
-            <div class="drinks-row"><span>Atlantic Hard Cider (Pomegranate)</span><span class="drinks-price">$7</span></div>
-            <div class="drinks-row"><span>Pernicious</span><span class="drinks-price">$7</span></div>
-            <div class="drinks-row"><span>Guinness</span><span class="drinks-price">$7</span></div>
-            <div class="drinks-row"><span>Voodoo Ranger IPA</span><span class="drinks-price">$7</span></div>
-            <div class="drinks-row"><span>White Claw</span><span class="drinks-price">$6</span></div>
-          </div>
-        </div>
-
-        <div class="menu-card-divider"></div>
-
-        <div class="menu-card-section">
-          <div class="menu-card-cocktail-header" style="padding:0 0 .75rem">
-            <span class="cocktails-script">Cocktails</span>
-            <span class="cocktails-price">$12</span>
-          </div>
-          <div class="menu-card-row cocktail-row rule-top">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">SPICY MANGO MARGARITA</div>
-              <div class="menu-card-desc">Jalapeño tequila, mango purée, sour, soda water</div>
-            </div>
-          </div>
-          <div class="menu-card-row cocktail-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">CHERRY LIMEADE</div>
-              <div class="menu-card-desc">Cherry vodka, lime juice, grenadine, Sprite</div>
-            </div>
-          </div>
-          <div class="menu-card-row cocktail-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">ESPRESSO OLD FASHIONED</div>
-              <div class="menu-card-desc">Bourbon, bitters, simple syrup, cold brew</div>
-            </div>
-          </div>
-          <div class="menu-card-row cocktail-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">FANCY PEAR</div>
-              <div class="menu-card-desc">Pear vodka, St. Germaine, sour, Prosecco</div>
-            </div>
-          </div>
-          <div class="menu-card-row cocktail-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">MAYAN MULE</div>
-              <div class="menu-card-desc">Jalapeño tequila, splash pineapple, ginger beer, lime</div>
-            </div>
-          </div>
-          <div class="menu-card-row cocktail-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">BLUE G&amp;T</div>
-              <div class="menu-card-desc">Empress Indigo gin, blueberry syrup, lemon, tonic</div>
-            </div>
-          </div>
-          <div class="menu-card-row cocktail-row">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">ESPRESSO MARTINI</div>
-              <div class="menu-card-desc">Vodka, Kahlua, cold brew, simple syrup</div>
-            </div>
-          </div>
-          <div class="menu-card-row cocktail-row" style="border-bottom:none">
-            <div class="menu-card-item-wrap">
-              <div class="menu-card-name">PBNJ &amp; COKE</div>
-              <div class="menu-card-desc">Skrewball, Razzmatazz, Coke</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ SOFT DRINKS ══ -->
-    <div id="mcat-softdrinks" class="menu-cat-panel fade-up" style="transition-delay:.15s">
-      <div class="menu-card menu-card-kids">
-        <div class="menu-card-cat-title" style="color:var(--maroon)">Soft Drinks</div>
-        <div class="menu-card-section">
-          <div class="menu-card-drinks-header" style="padding-top:0">
-            <span style="font-size:1rem;color:var(--ink);font-weight:400">All drinks</span>
-            <span class="menu-card-drinks-price">$3</span>
-          </div>
-          <div class="menu-drinks-grid" style="grid-template-columns:1fr 1fr;gap:.6rem 3rem;padding-top:.25rem">
-            <span>Coke</span>
-            <span>Lemonade</span>
-            <span>Diet Coke</span>
-            <span>Orange Fanta</span>
-            <span>Coke Zero</span>
-            <span>Ginger Ale</span>
-            <span>Sprite</span>
-            <span>Dr. Pepper</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ══ KIDS ══ -->
-    <div id="mcat-kids" class="menu-cat-panel fade-up" style="transition-delay:.15s">
-      <div class="menu-card menu-card-kids">
-        <div class="menu-card-cat-title" style="color:var(--maroon)">Kids Menu</div>
-        <div class="menu-card-section">
-          <div class="menu-card-kids-header" style="padding-top:0">
-            <span class="kids-price" style="font-size:.9rem;color:rgba(26,26,24,.6)">All items</span>
-            <span class="kids-price">$7</span>
-          </div>
-          <div class="menu-card-row rule-top">
-            <div class="menu-card-name">BURGER N FRIES</div>
-          </div>
-          <div class="menu-card-row">
-            <div class="menu-card-name">CORN DOG N FRIES</div>
-          </div>
-          <div class="menu-card-row" style="border-bottom:none">
-            <div class="menu-card-name">SMALL CHEESE PIZZA</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-cta-row fade-up" style="transition-delay:.2s">
-      <a href="#hours" class="btn-outline-cream">Hours &amp; Directions &rarr;</a>
-    </div>
-
-  </div>
+<!-- ② MENU (What We Serve) -->
+<section id="menu" class="mo mo-cards" data-mo="cards" aria-label="The menu">
+  <div class="mo-head"><p class="section-label centered">What We Serve</p><h2>The Menu</h2>
+  <p class="mo-sub">Every item gets its own picture. See it, then order it at the counter.</p></div>
+  <div class="ic-chips" role="tablist" aria-label="Menu categories"><button type="button" role="tab" aria-selected="true" data-ic="burgers">Burgers &amp; Sandwiches</button><button type="button" role="tab" aria-selected="false" data-ic="pizza">Pizza</button><button type="button" role="tab" aria-selected="false" data-ic="wings">Wings</button><button type="button" role="tab" aria-selected="false" data-ic="salads">Salads &amp; Dessert</button><button type="button" role="tab" aria-selected="false" data-ic="kids">Kids</button><button type="button" role="tab" aria-selected="false" data-ic="cocktails">Cocktails</button><button type="button" role="tab" aria-selected="false" data-ic="draft">Draft Beer</button><button type="button" role="tab" aria-selected="false" data-ic="bottles">Bottled Beer</button><button type="button" role="tab" aria-selected="false" data-ic="cans">Canned Beer</button><button type="button" role="tab" aria-selected="false" data-ic="soft">Soft Drinks</button></div>
+  
+  <div class="ic-pane" data-ic-pane="burgers"><p class="ic-note">All served with fries, pasta salad, or side salad (+$1.50) · Add cheese +$1.50</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Double Stack All American</b></span></figure><div class="ic-body"><h4><span>Double Stack All American</span><b class="ic-p">$15</b></h4><p class="ic-d">2 patties – lettuce – tomato – onion – pickle – mayo</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Rib Sandwich</b></span></figure><div class="ic-body"><h4><span>Rib Sandwich</span><b class="ic-p">$14</b></h4><p class="ic-d">Boneless rib BBQ – pickle – onion · Limited availability</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Chicken Sandwich</b></span></figure><div class="ic-body"><h4><span>Chicken Sandwich</span><b class="ic-p">$15</b></h4><p class="ic-d">Fried or grilled chicken breast – lettuce – tomato – onion – pickle – mayo</p><p class="ic-s">★ Buffalo Style — Buffalo sauce – bleu cheese crumbles</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Sandwich of the Week</b></span></figure><div class="ic-body"><h4><span>Sandwich of the Week</span><b class="ic-p">$15</b></h4><p class="ic-d">Ask at the counter</p></div></article></div></div><div class="ic-pane" data-ic-pane="pizza" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Margherita</b></span></figure><div class="ic-body"><h4><span>Margherita</span><b class="ic-p">$16</b></h4><p class="ic-d">House pizza sauce, fresh mozzarella &amp; basil</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>White Pie</b></span></figure><div class="ic-body"><h4><span>White Pie</span><b class="ic-p">$16</b></h4><p class="ic-d">Alfredo sauce base, shredded mozzarella, grated parmesan, Italian herbs</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Kickin&#x27; Chicken</b></span></figure><div class="ic-body"><h4><span>Kickin&#x27; Chicken</span><b class="ic-p">$18</b></h4><p class="ic-d">Grilled chicken, Canadian bacon, jalapeños, pineapple</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Full Tank</b></span></figure><div class="ic-body"><h4><span>Full Tank</span><b class="ic-p">$18</b></h4><p class="ic-d">Pepperoni, Italian sausage, ground beef, bacon</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Build Your Own</b></span></figure><div class="ic-body"><h4><span>Build Your Own</span><b class="ic-p">$15</b></h4><p class="ic-d">Toppings $0.50 to $1.50 each</p><p class="ic-s">Pepperoni · Ground Beef · Banana Pepper · Grilled Chicken · Green Pepper · Olives · Italian Sausage · Onion · Pineapple · Bacon · Mushroom · Tomato · Canadian Bacon · Jalapeños · Basil</p></div></article></div></div><div class="ic-pane" data-ic-pane="wings" hidden><p class="ic-note">Six wings, choice of sauce · Served with carrots &amp; celery</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Wings</b></span></figure><div class="ic-body"><h4><span>Wings</span><b class="ic-p">$13</b></h4><p class="ic-pills"><em>Buffalo</em><em>Garlic Parm</em><em>Korean BBQ</em><em>BBQ</em></p></div></article></div></div><div class="ic-pane" data-ic-pane="salads" hidden><p class="ic-note">Ranch · Balsamic · Blue Cheese · Greek · Caesar · Add grilled or fried chicken +$5</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>House</b></span></figure><div class="ic-body"><h4><span>House</span><b class="ic-p">$11</b></h4><p class="ic-d">Mixed greens, tomato, cucumber, onion, cheddar, boiled egg, bacon, croutons</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Caesar</b></span></figure><div class="ic-body"><h4><span>Caesar</span><b class="ic-p">$11</b></h4><p class="ic-d">Romaine, Caesar dressing, croutons, grated parmesan</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Greek</b></span></figure><div class="ic-body"><h4><span>Greek</span><b class="ic-p">$11</b></h4><p class="ic-d">Mixed greens, tomato, cucumber, onion, green pepper, banana peppers, olives, feta</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Dessert</b></span></figure><div class="ic-body"><h4><span>Dessert</span></h4><p class="ic-d">Ask at the counter</p></div></article></div></div><div class="ic-pane" data-ic-pane="kids" hidden><p class="ic-note">All items $7</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Burger n Fries</b></span></figure><div class="ic-body"><h4><span>Burger n Fries</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Corn Dog n Fries</b></span></figure><div class="ic-body"><h4><span>Corn Dog n Fries</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Small Cheese Pizza</b></span></figure><div class="ic-body"><h4><span>Small Cheese Pizza</span><b class="ic-p">$7</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="cocktails" hidden><p class="ic-note">Every cocktail $12</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Spicy Mango Margarita</b></span></figure><div class="ic-body"><h4><span>Spicy Mango Margarita</span><b class="ic-p">$12</b></h4><p class="ic-d">Jalapeño tequila, mango purée, sour, soda water</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Cherry Limeade</b></span></figure><div class="ic-body"><h4><span>Cherry Limeade</span><b class="ic-p">$12</b></h4><p class="ic-d">Cherry vodka, lime juice, grenadine, Sprite</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Espresso Old Fashioned</b></span></figure><div class="ic-body"><h4><span>Espresso Old Fashioned</span><b class="ic-p">$12</b></h4><p class="ic-d">Bourbon, bitters, simple syrup, cold brew</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Fancy Pear</b></span></figure><div class="ic-body"><h4><span>Fancy Pear</span><b class="ic-p">$12</b></h4><p class="ic-d">Pear vodka, St. Germaine, sour, Prosecco</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Mayan Mule</b></span></figure><div class="ic-body"><h4><span>Mayan Mule</span><b class="ic-p">$12</b></h4><p class="ic-d">Jalapeño tequila, splash pineapple, ginger beer, lime</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Blue G&amp;T</b></span></figure><div class="ic-body"><h4><span>Blue G&amp;T</span><b class="ic-p">$12</b></h4><p class="ic-d">Empress Indigo gin, blueberry syrup, lemon, tonic</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Espresso Martini</b></span></figure><div class="ic-body"><h4><span>Espresso Martini</span><b class="ic-p">$12</b></h4><p class="ic-d">Vodka, Kahlua, cold brew, simple syrup</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>PBNJ &amp; Coke</b></span></figure><div class="ic-body"><h4><span>PBNJ &amp; Coke</span><b class="ic-p">$12</b></h4><p class="ic-d">Skrewball, Razzmatazz, Coke</p></div></article></div></div><div class="ic-pane" data-ic-pane="draft" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Miller Lite</b></span></figure><div class="ic-body"><h4><span>Miller Lite</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Blue Moon</b></span></figure><div class="ic-body"><h4><span>Blue Moon</span><b class="ic-p">$6</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Modelo</b></span></figure><div class="ic-body"><h4><span>Modelo</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Hazy IPA</b></span></figure><div class="ic-body"><h4><span>Hazy IPA</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="bottles" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Michelob Ultra</b></span></figure><div class="ic-body"><h4><span>Michelob Ultra</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Bud</b></span></figure><div class="ic-body"><h4><span>Bud</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Bud Light</b></span></figure><div class="ic-body"><h4><span>Bud Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coors Light</b></span></figure><div class="ic-body"><h4><span>Coors Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Corona</b></span></figure><div class="ic-body"><h4><span>Corona</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Miller High Life</b></span></figure><div class="ic-body"><h4><span>Miller High Life</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Natural Light</b></span></figure><div class="ic-body"><h4><span>Natural Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Stella</b></span></figure><div class="ic-body"><h4><span>Stella</span><b class="ic-p">$6</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Angry Orchard</b></span></figure><div class="ic-body"><h4><span>Angry Orchard</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="cans" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Atlantic Hard Cider</b></span></figure><div class="ic-body"><h4><span>Atlantic Hard Cider</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Pernicious</b></span></figure><div class="ic-body"><h4><span>Pernicious</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Guinness</b></span></figure><div class="ic-body"><h4><span>Guinness</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Voodoo Ranger IPA</b></span></figure><div class="ic-body"><h4><span>Voodoo Ranger IPA</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>White Claw</b></span></figure><div class="ic-body"><h4><span>White Claw</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="soft" hidden><p class="ic-note">Every soft drink $3</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coke</b></span></figure><div class="ic-body"><h4><span>Coke</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Diet Coke</b></span></figure><div class="ic-body"><h4><span>Diet Coke</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coke Zero</b></span></figure><div class="ic-body"><h4><span>Coke Zero</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Sprite</b></span></figure><div class="ic-body"><h4><span>Sprite</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Lemonade</b></span></figure><div class="ic-body"><h4><span>Lemonade</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Orange Fanta</b></span></figure><div class="ic-body"><h4><span>Orange Fanta</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Ginger Ale</b></span></figure><div class="ic-body"><h4><span>Ginger Ale</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Dr. Pepper</b></span></figure><div class="ic-body"><h4><span>Dr. Pepper</span><b class="ic-p">$3</b></h4></div></article></div></div>
+  <div class="mo-foot"><span>Walk in · order at the counter · dine in or take out</span><a href="#hours" class="btn-outline-cream">Hours &amp; Directions &rarr;</a></div>
 </section>
+
 
 <!-- FOOD & DRINK SLIDER — between menu and about -->
 <div class="slider-bar food-slider" aria-label="Food and drink photo showcase">
@@ -3257,6 +3120,58 @@ window.addEventListener('scroll', () => {
     var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ pb.classList.add('flip'); io.disconnect(); } }); }, {threshold:.4});
     io.observe(pb);
   }
+})();
+</script>
+<script>
+/* ══ WHAT WE SERVE · menu options ══ */
+(function(){
+  /* board: food / bar faces */
+  document.querySelectorAll('.mo-board').forEach(function(b){
+    b.querySelectorAll('[data-mb]').forEach(function(btn){ btn.addEventListener('click', function(){
+      b.querySelectorAll('[data-mb]').forEach(function(o){ o.setAttribute('aria-selected', o === btn ? 'true' : 'false'); });
+      b.querySelectorAll('[data-mb-face]').forEach(function(f){ f.hidden = f.dataset.mbFace !== btn.dataset.mb; });
+    }); });
+  });
+  /* pump: grade buttons */
+  document.querySelectorAll('.mo-pump').forEach(function(p){
+    p.querySelectorAll('[data-pu]').forEach(function(btn){ btn.addEventListener('click', function(){
+      p.querySelectorAll('[data-pu]').forEach(function(o){ o.setAttribute('aria-selected', o === btn ? 'true' : 'false'); });
+      p.querySelectorAll('[data-pu-pane]').forEach(function(f){ f.hidden = f.dataset.puPane !== btn.dataset.pu; });
+    }); });
+  });
+  /* item cards: category chips */
+  document.querySelectorAll('.mo-cards').forEach(function(p){
+    p.querySelectorAll('[data-ic]').forEach(function(btn){ btn.addEventListener('click', function(){
+      p.querySelectorAll('[data-ic]').forEach(function(o){ o.setAttribute('aria-selected', o === btn ? 'true' : 'false'); });
+      p.querySelectorAll('[data-ic-pane]').forEach(function(f){ f.hidden = f.dataset.icPane !== btn.dataset.ic; });
+    }); });
+  });
+  /* item cards: every category is one sideways-scrolling row with arrows */
+  document.querySelectorAll('.mo-cards .ic-grid').forEach(function(g){
+    var row = document.createElement('div'); row.className = 'ic-row'; g.parentNode.insertBefore(row, g); row.appendChild(g);
+    var n = g.children.length, cnt = document.createElement('div'); cnt.className = 'ic-count';
+    cnt.innerHTML = '<span>' + n + (n === 1 ? ' item' : ' items') + '</span><span class="ic-hint">' + (n > 1 ? 'Scroll &rarr;' : '') + '</span>'; row.parentNode.insertBefore(cnt, row);
+    var prev = document.createElement('button'), next = document.createElement('button');
+    prev.type = next.type = 'button'; prev.className = 'ic-arrow ic-prev'; next.className = 'ic-arrow ic-next';
+    prev.innerHTML = '&larr;'; next.innerHTML = '&rarr;'; prev.setAttribute('aria-label', 'Scroll left'); next.setAttribute('aria-label', 'Scroll right');
+    row.appendChild(prev); row.appendChild(next);
+    function step(){ var c = g.querySelector('.ic-card'); return c ? (c.getBoundingClientRect().width + 16) * Math.max(1, Math.floor(g.clientWidth / (c.getBoundingClientRect().width + 16))) : 300; }
+    prev.addEventListener('click', function(){ g.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function(){ g.scrollBy({ left: step(), behavior: 'smooth' }); });
+    function upd(){ prev.disabled = g.scrollLeft < 30; next.disabled = g.scrollLeft + g.clientWidth >= g.scrollWidth - 8; var h = cnt.querySelector('.ic-hint'); if (h) h.style.visibility = (g.scrollWidth > g.clientWidth + 8) ? 'visible' : 'hidden'; }
+    g.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); row.__upd = upd; upd();
+  });
+  document.querySelectorAll('.mo-cards [data-ic]').forEach(function(b){ b.addEventListener('click', function(){ setTimeout(function(){ document.querySelectorAll('.mo-cards .ic-row').forEach(function(r){ r.__upd && r.__upd(); }); }, 30); }); });
+  /* preview: switch which menu section shows; the visible one carries id="menu" */
+  var sw = document.querySelector('.mo-switch'); if (!sw) return;
+  var today = document.querySelector('[data-mo="today"]'), all = document.querySelectorAll('[data-mo]');
+  function set(k){
+    all.forEach(function(s){ var on = s.dataset.mo === k; s.style.display = on ? '' : 'none'; if (on) s.id = 'menu'; else if (s.id === 'menu') s.removeAttribute('id'); });
+    sw.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.opt === k ? 'true' : 'false'); });
+    setTimeout(function(){ document.querySelectorAll('.mo-cards .ic-row').forEach(function(r){ r.__upd && r.__upd(); }); }, 30);
+  }
+  sw.querySelectorAll('button').forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.opt); var m = document.getElementById('menu'); m && m.scrollIntoView(); }); });
+  set(new URLSearchParams(location.search).get('menu') || 'cards');
 })();
 </script>
 </body></html>
