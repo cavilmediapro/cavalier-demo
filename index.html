@@ -2496,6 +2496,112 @@ html[data-sl][data-fit="3"] .timeline-photo-wrap{height:calc(min(520px,58vw) - v
 }
 </style>
 
+<style id="cav-bays2">
+/* ══ PICK A BAY, reworked (23 Nov 2026): three bays, no black frames, no even grid. To undo: delete this block, the bays script and restore the .gx section. ══ */
+.gx-bays2 .by{display:none}
+.gx-bays2[data-bays="1"] .by-1,.gx-bays2[data-bays="2"] .by-2,.gx-bays2[data-bays="3"] .by-3,.gx-bays2[data-bays="4"] .by-4{display:block}
+.gx-lb img{border:0!important}
+.byd{position:relative;display:block;width:100%;border:0;padding:0;overflow:hidden;background:#2a2925;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.byd-in{position:absolute;inset:0}.byd-in img{width:100%;height:100%;object-fit:cover;display:block}
+.byd-slats{position:absolute;inset:0;background:repeating-linear-gradient(180deg,#e2ddd0 0 26px,#c9c3b4 26px 28px,#ece7da 28px 30px);box-shadow:inset 0 -6px 0 #a39d8e;transition:transform .95s cubic-bezier(.65,0,.25,1)}
+.byd:hover .byd-slats{transform:translateY(-7%)}
+.byd[aria-selected="true"] .byd-slats{transform:translateY(-101%)}
+.byd-lbl{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:.35rem;padding:3rem 1.2rem 1.1rem;color:#1A1A18;transition:color .5s}
+.byd-lbl i{font:700 .7rem/1 var(--font-cond);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon)}
+.byd-lbl b{font:800 clamp(1.3rem,2.7vw,2.3rem)/.95 var(--font-display);text-transform:uppercase;letter-spacing:.03em}
+.byd-lbl em{font:700 .72rem/1 var(--font-cond);font-style:normal;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.byd[aria-selected="true"] .byd-lbl{color:#FDFAF5;background:linear-gradient(transparent,rgba(13,13,12,.78))}
+.byd[aria-selected="true"] .byd-lbl i{color:#F2B43C}
+.byd:focus-visible,.by-name:focus-visible,.by-big:focus-visible{outline:3px solid #F2B43C;outline-offset:-3px}
+.by-doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+/* sideways photo row: photos keep their own shape, no frames */
+.by-strip{display:flex;gap:8px;margin-top:8px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--maroon) transparent;padding-bottom:6px;animation:byIn .6s cubic-bezier(.2,.7,.2,1)}
+.by-strip::-webkit-scrollbar{height:5px}.by-strip::-webkit-scrollbar-thumb{background:var(--maroon)}
+.by-strip .gx-open{flex:none;width:auto;height:var(--sh,170px);scroll-snap-align:start;background:transparent}
+.by-strip .gx-open img{width:auto;height:100%;object-fit:cover}
+@keyframes byIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+
+/* 1 · three tall doors */
+.by-1 .byd{aspect-ratio:1/1}
+/* 2 · one big door */
+.by-2 .by-wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.by-names{display:flex;flex-direction:column;gap:1.4rem}
+.by-name{display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:.9rem;border:0;background:transparent;padding:0 0 .5rem;text-align:left;cursor:pointer;color:rgba(26,26,24,.28);border-bottom:3px solid transparent;transition:color .4s,border-color .4s}
+.by-name i{font:700 .72rem/1 var(--font-cond);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon)}
+.by-name b{font:800 clamp(2.2rem,5.4vw,4.6rem)/.9 var(--font-display);text-transform:uppercase;letter-spacing:.02em}
+.by-name em{grid-column:2;font:700 .72rem/1 var(--font-cond);font-style:normal;letter-spacing:.16em;text-transform:uppercase;margin-top:.5rem;opacity:0;transition:opacity .4s}
+.by-name:hover{color:rgba(26,26,24,.6)}
+.by-name[aria-selected="true"]{color:#1A1A18;border-bottom-color:var(--maroon)}
+.by-name[aria-selected="true"] em{opacity:.6}
+.by-big{position:relative;display:block;width:100%;aspect-ratio:4/3;border:0;padding:0;overflow:hidden;background:#2a2925;cursor:zoom-in}
+.by-big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.by-big .byd-slats{transform:translateY(-101%)}
+.by-big.shut .byd-slats{transform:none;transition-duration:.5s}
+.by-2 .by-strip{--sh:92px}
+/* 3 · doors + mixed photo wall */
+.by-3 .byd{aspect-ratio:16/6}
+.by-3 .byd-lbl{padding:1.4rem 1.1rem .9rem;flex-direction:row;align-items:baseline;gap:.7rem}
+.by-3 .byd-lbl b{font-size:clamp(1.1rem,2vw,1.6rem)}.by-3 .byd-lbl em{margin-left:auto}
+.by-wall{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(150px,17vw,215px);gap:8px;margin-top:8px;animation:byIn .6s cubic-bezier(.2,.7,.2,1)}
+.by-wall .gx-open{position:relative;background:transparent}
+.by-wall .w1{grid-column:1/8;grid-row:1/3}.by-wall .w2{grid-column:8/13;grid-row:1}.by-wall .w3{grid-column:8/10;grid-row:2}.by-wall .w4{grid-column:10/13;grid-row:2}
+.by-wall .wx{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
+.by-more{position:absolute;right:0;bottom:0;padding:.55rem .8rem;background:#1A1A18;color:#F5F0E6;font:700 .74rem/1 var(--font-cond);letter-spacing:.16em;text-transform:uppercase}
+/* 4 · glass panes, thin maroon lines */
+.by-4 .byd{aspect-ratio:1/1;box-shadow:inset 0 0 0 2px var(--maroon)}
+.byd-panes{position:absolute;inset:0;display:grid;grid-template-rows:repeat(4,1fr)}
+.byd-panes span{border-bottom:2px solid var(--maroon);
+  background:linear-gradient(90deg,transparent calc(33.33% - 1px),var(--maroon) calc(33.33% - 1px),var(--maroon) calc(33.33% + 1px),transparent calc(33.33% + 1px),transparent calc(66.66% - 1px),var(--maroon) calc(66.66% - 1px),var(--maroon) calc(66.66% + 1px),transparent calc(66.66% + 1px)),linear-gradient(160deg,rgba(247,243,234,.9),rgba(226,219,204,.8));
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);transition:transform .95s cubic-bezier(.65,0,.25,1)}
+.byd-panes span:nth-child(1){--k:1}.byd-panes span:nth-child(2){--k:2}.byd-panes span:nth-child(3){--k:3}.byd-panes span:nth-child(4){--k:4}
+.byd[aria-selected="true"] .byd-panes span{transform:translateY(calc(var(--k)*-102%));transition-delay:calc((var(--k) - 1)*80ms)}
+.by-4 .byd:hover .byd-panes span{transform:translateY(-6%)}
+.by-4 .byd[aria-selected="true"]:hover .byd-panes span{transform:translateY(calc(var(--k)*-102%))}
+
+@media(max-width:768px){
+  .gx.gx-bays2{padding-top:28px!important;padding-bottom:44px!important}
+  html[data-sl] .gx.gx-bays2{min-height:calc(100vh - 120px);min-height:calc(100svh - 120px);margin-bottom:32vh}
+  .gx-bays2 .gx-sub{display:none}.gx-bays2 .gx-head{margin-bottom:12px}
+  .by-doors{gap:4px}.by-strip{gap:4px;margin-top:4px;--sh:210px}
+  .byd-lbl{padding:1.6rem .5rem .55rem;gap:.25rem}.byd-lbl i{font-size:.54rem;letter-spacing:.16em}.byd-lbl b{font-size:.86rem}.byd-lbl em{display:none}
+  .by-1 .byd,.by-4 .byd{aspect-ratio:9/20}
+  .by-2 .by-wrap{grid-template-columns:minmax(0,1fr);gap:12px}
+  .by-names{flex-direction:row;gap:.9rem;align-items:flex-end}
+  .by-name{display:flex;flex-direction:column;gap:.3rem;padding-bottom:.35rem}.by-name b{font-size:1.25rem}.by-name em{display:none}.by-name i{font-size:.54rem}
+  .by-2 .by-big{aspect-ratio:1/1}
+  .by-2 .by-strip{--sh:112px}
+  .by-3 .byd{aspect-ratio:4/3}.by-3 .byd-lbl{flex-direction:column;padding:1rem .5rem .5rem;gap:.25rem}
+  .by-wall{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto;gap:4px;margin-top:4px}
+  .by-wall .w1{grid-column:1/3;grid-row:auto;aspect-ratio:4/3}.by-wall .w3,.by-wall .w4{grid-column:auto;grid-row:auto;aspect-ratio:1/1}
+  .by-wall .w2{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;overflow:hidden}
+}
+
+/* ── one big door: the whole section fits the visible window on desktop, tablet and phone; the door takes whatever height is left ── */
+.gx-bays2[data-bays="2"]{box-sizing:border-box;height:calc(100vh - 72px);height:calc(100svh - 72px);min-height:430px;display:flex;flex-direction:column;
+  padding-top:2.2rem!important;padding-bottom:calc(clamp(34px,6vw,96px) + 14px)!important}
+html[data-sl] .gx-bays2[data-bays="2"]{margin-bottom:35vh}
+.gx-bays2[data-bays="2"] .gx-head{flex:none;margin-bottom:1.1rem}
+.gx-bays2[data-bays="2"] .by-2{flex:1;min-height:0;display:flex;flex-direction:column}
+.gx-bays2[data-bays="2"] .by-wrap{flex:1;min-height:0;grid-template-rows:minmax(0,1fr)}
+.gx-bays2[data-bays="2"] .by-stage{align-self:stretch;display:flex;flex-direction:column;min-height:0;min-width:0}
+.gx-bays2[data-bays="2"] .by-big{flex:1 1 0;min-height:0;aspect-ratio:auto!important}
+.gx-bays2[data-bays="2"] .by-strip{flex:none}
+@media(max-height:760px) and (min-width:769px){.gx-bays2[data-bays="2"] .gx-sub{display:none}.gx-bays2[data-bays="2"]{padding-top:1.4rem!important}.gx-bays2[data-bays="2"] .by-strip{--sh:72px}.gx-bays2[data-bays="2"] .by-names{gap:.8rem}.gx-bays2[data-bays="2"] .by-name b{font-size:clamp(1.8rem,4vw,3.2rem)}}
+@media(max-width:1024px){
+  .gx-bays2[data-bays="2"] .by-wrap{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:14px}
+  .gx-bays2[data-bays="2"] .by-names{flex-direction:row;gap:1.4rem;align-items:flex-end}
+  .gx-bays2[data-bays="2"] .by-name{display:flex;flex-direction:column;gap:.3rem;padding-bottom:.4rem}
+  .gx-bays2[data-bays="2"] .by-name b{font-size:clamp(1.25rem,4.6vw,2.6rem)}
+  .gx-bays2[data-bays="2"] .by-name em{display:none}
+}
+@media(max-width:768px){
+  .gx-bays2[data-bays="2"]{height:calc(100vh - 120px);height:calc(100svh - 120px);min-height:400px!important;padding-top:28px!important;padding-bottom:46px!important}
+  .gx-bays2[data-bays="2"] .by-names{gap:.9rem}
+  .gx-bays2[data-bays="2"] .by-wrap{gap:10px}
+  .gx-bays2[data-bays="2"] .by-strip{--sh:clamp(60px,12vh,112px)!important}
+}
+</style>
+
 <!-- NAV -->
 <header id="navbar">
   <div class="nav-inner">
@@ -2819,18 +2925,9 @@ html[data-sl][data-fit="3"] .timeline-photo-wrap{height:calc(min(520px,58vw) - v
 
 
 <!-- PHOTO GALLERY -->
-<section class="gx gx-bays" data-gx="bays" aria-label="Photo gallery">
-  <div class="gx-head"><div class="tm-row tm-bb"><p class="section-label centered">Around The Station</p><h2>Pick A Bay</h2></div><p class="gx-sub">Four bay doors, four sides of the station. Pick one and it rolls up.</p></div>
-  <div class="gb-doors" role="tablist" aria-label="Photo groups"><button type="button" role="tab" class="gb-door" aria-selected="true" data-gb="food">
-      <span class="gb-in"><img src="gallery/fb-41.jpg" alt=""></span><span class="gb-slats" aria-hidden="true"></span>
-      <span class="gb-lbl"><i>Bay 1</i><b>The Kitchen</b><em>10 photos</em></span></button><button type="button" role="tab" class="gb-door" aria-selected="false" data-gb="drinks">
-      <span class="gb-in"><img src="gallery/fb-33.jpg" alt=""></span><span class="gb-slats" aria-hidden="true"></span>
-      <span class="gb-lbl"><i>Bay 2</i><b>The Bar</b><em>7 photos</em></span></button><button type="button" role="tab" class="gb-door" aria-selected="false" data-gb="inside">
-      <span class="gb-in"><img src="gallery/fb-45.jpg" alt=""></span><span class="gb-slats" aria-hidden="true"></span>
-      <span class="gb-lbl"><i>Bay 3</i><b>Inside</b><em>9 photos</em></span></button><button type="button" role="tab" class="gb-door" aria-selected="false" data-gb="patio">
-      <span class="gb-in"><img src="gallery/fb-35.jpg" alt=""></span><span class="gb-slats" aria-hidden="true"></span>
-      <span class="gb-lbl"><i>Bay 4</i><b>The Patio</b><em>10 photos</em></span></button></div>
-  <div class="gb-bodies"><div class="gb-body" data-gb-body="food"><button type="button" class="gx-open" data-g="food" data-n="41" data-c="Pepperoni pizza" aria-label="Open photo: Pepperoni pizza"><img src="gallery/fb-41.jpg" alt="Pepperoni pizza" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="26" data-c="Wings with carrots and celery" aria-label="Open photo: Wings with carrots and celery"><img src="gallery/fb-26.jpg" alt="Wings with carrots and celery" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="36" data-c="Margherita" aria-label="Open photo: Margherita"><img src="gallery/fb-36.jpg" alt="Margherita" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="31" data-c="A burger and fries" aria-label="Open photo: A burger and fries"><img src="gallery/fb-31.jpg" alt="A burger and fries" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="03" data-c="White Pie" aria-label="Open photo: White Pie"><img src="gallery/fb-03.jpg" alt="White Pie" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="25" data-c="Wings being sauced" aria-label="Open photo: Wings being sauced"><img src="gallery/fb-25.jpg" alt="Wings being sauced" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="12" data-c="A pie fresh from the kitchen" aria-label="Open photo: A pie fresh from the kitchen"><img src="gallery/fb-12.jpg" alt="A pie fresh from the kitchen" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="08" data-c="Greek salads" aria-label="Open photo: Greek salads"><img src="gallery/fb-08.jpg" alt="Greek salads" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="11" data-c="A pizza being sliced" aria-label="Open photo: A pizza being sliced"><img src="gallery/fb-11.jpg" alt="A pizza being sliced" loading="lazy"></button><button type="button" class="gx-open" data-g="food" data-n="18" data-c="Dessert" aria-label="Open photo: Dessert"><img src="gallery/fb-18.jpg" alt="Dessert" loading="lazy"></button></div><div class="gb-body" data-gb-body="drinks" hidden><button type="button" class="gx-open" data-g="drinks" data-n="46" data-c="Cherry Limeade" aria-label="Open photo: Cherry Limeade"><img src="gallery/fb-46.jpg" alt="Cherry Limeade" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="33" data-c="A cocktail poured under the torch sign" aria-label="Open photo: A cocktail poured under the torch sign"><img src="gallery/fb-33.jpg" alt="A cocktail poured under the torch sign" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="27" data-c="A margarita with a chile-salt rim" aria-label="Open photo: A margarita with a chile-salt rim"><img src="gallery/fb-27.jpg" alt="A margarita with a chile-salt rim" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="39" data-c="Two cocktails at the bar" aria-label="Open photo: Two cocktails at the bar"><img src="gallery/fb-39.jpg" alt="Two cocktails at the bar" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="42" data-c="A martini on the patio rail" aria-label="Open photo: A martini on the patio rail"><img src="gallery/fb-42.jpg" alt="A martini on the patio rail" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="44" data-c="A cocktail being shaken" aria-label="Open photo: A cocktail being shaken"><img src="gallery/fb-44.jpg" alt="A cocktail being shaken" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="20" data-c="A pour at the bar" aria-label="Open photo: A pour at the bar"><img src="gallery/fb-20.jpg" alt="A pour at the bar" loading="lazy"></button></div><div class="gb-body" data-gb-body="inside" hidden><button type="button" class="gx-open" data-g="inside" data-n="05" data-c="The bar under the truck-hood light" aria-label="Open photo: The bar under the truck-hood light"><img src="gallery/fb-05.jpg" alt="The bar under the truck-hood light" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="06" data-c="The Amoco and Sinclair signs over the bar" aria-label="Open photo: The Amoco and Sinclair signs over the bar"><img src="gallery/fb-06.jpg" alt="The Amoco and Sinclair signs over the bar" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="45" data-c="The dining room" aria-label="Open photo: The dining room"><img src="gallery/fb-45.jpg" alt="The dining room" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="40" data-c="The bay doors, looking out to the patio" aria-label="Open photo: The bay doors, looking out to the patio"><img src="gallery/fb-40.jpg" alt="The bay doors, looking out to the patio" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="15" data-c="The neon under the hood light" aria-label="Open photo: The neon under the hood light"><img src="gallery/fb-15.jpg" alt="The neon under the hood light" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="21" data-c="The bar from the dining room" aria-label="Open photo: The bar from the dining room"><img src="gallery/fb-21.jpg" alt="The bar from the dining room" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="32" data-c="The back bar" aria-label="Open photo: The back bar"><img src="gallery/fb-32.jpg" alt="The back bar" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="04" data-c="Drinks headed out from the bar" aria-label="Open photo: Drinks headed out from the bar"><img src="gallery/fb-04.jpg" alt="Drinks headed out from the bar" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="09" data-c="Dinner by the bay-door windows" aria-label="Open photo: Dinner by the bay-door windows"><img src="gallery/fb-09.jpg" alt="Dinner by the bay-door windows" loading="lazy"></button></div><div class="gb-body" data-gb-body="patio" hidden><button type="button" class="gx-open" data-g="patio" data-n="35" data-c="A full table on the patio" aria-label="Open photo: A full table on the patio"><img src="gallery/fb-35.jpg" alt="A full table on the patio" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="34" data-c="The patio on a busy evening" aria-label="Open photo: The patio on a busy evening"><img src="gallery/fb-34.jpg" alt="The patio on a busy evening" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="28" data-c="The station at dusk" aria-label="Open photo: The station at dusk"><img src="gallery/fb-28.jpg" alt="The station at dusk" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="13" data-c="Friends on the patio" aria-label="Open photo: Friends on the patio"><img src="gallery/fb-13.jpg" alt="Friends on the patio" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="29" data-c="Burgers · Pizza · Wings, under the canopy" aria-label="Open photo: Burgers · Pizza · Wings, under the canopy"><img src="gallery/fb-29.jpg" alt="Burgers · Pizza · Wings, under the canopy" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="00" data-c="The patio under the red umbrellas" aria-label="Open photo: The patio under the red umbrellas"><img src="gallery/fb-00.jpg" alt="The patio under the red umbrellas" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="22" data-c="The patio from above" aria-label="Open photo: The patio from above"><img src="gallery/fb-22.jpg" alt="The patio from above" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="23" data-c="The station from Raleigh Road" aria-label="Open photo: The station from Raleigh Road"><img src="gallery/fb-23.jpg" alt="The station from Raleigh Road" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="37" data-c="Under the canopy" aria-label="Open photo: Under the canopy"><img src="gallery/fb-37.jpg" alt="Under the canopy" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="38" data-c="Lunch on the patio" aria-label="Open photo: Lunch on the patio"><img src="gallery/fb-38.jpg" alt="Lunch on the patio" loading="lazy"></button></div></div>
+<section class="gx gx-bays2" data-bays="2" aria-label="Photo gallery">
+  <div class="gx-head"><div class="tm-row tm-bb"><p class="section-label centered">Around The Station</p><h2>Pick A Bay</h2></div><p class="gx-sub">Three bay doors, three sides of the station. Pick one and it rolls up.</p></div>
+  <div class="by by-2"><div class="by-wrap"><div class="by-names" role="tablist" aria-label="Bays"><button type="button" role="tab" class="by-name" aria-selected="true" data-by="inside" data-cover="gallery/fb-45.jpg"><i>Bay 1</i><b>Inside</b><em>9 photos</em></button><button type="button" role="tab" class="by-name" aria-selected="false" data-by="drinks" data-cover="gallery/fb-33.jpg"><i>Bay 2</i><b>The Bar</b><em>7 photos</em></button><button type="button" role="tab" class="by-name" aria-selected="false" data-by="patio" data-cover="gallery/fb-35.jpg"><i>Bay 3</i><b>The Patio</b><em>10 photos</em></button></div><div class="by-stage"><button type="button" class="by-big" aria-label="Open this bay's photos"><img src="gallery/fb-45.jpg" alt=""><span class="byd-slats" aria-hidden="true"></span></button><div class="by-strip" data-by-body="inside"><button type="button" class="gx-open" data-g="inside" data-n="05" data-c="The bar under the truck-hood light" aria-label="Open photo: The bar under the truck-hood light"><img src="gallery/fb-05.jpg" alt="The bar under the truck-hood light" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="06" data-c="The Amoco and Sinclair signs over the bar" aria-label="Open photo: The Amoco and Sinclair signs over the bar"><img src="gallery/fb-06.jpg" alt="The Amoco and Sinclair signs over the bar" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="45" data-c="The dining room" aria-label="Open photo: The dining room"><img src="gallery/fb-45.jpg" alt="The dining room" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="40" data-c="The bay doors, looking out to the patio" aria-label="Open photo: The bay doors, looking out to the patio"><img src="gallery/fb-40.jpg" alt="The bay doors, looking out to the patio" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="15" data-c="The neon under the hood light" aria-label="Open photo: The neon under the hood light"><img src="gallery/fb-15.jpg" alt="The neon under the hood light" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="21" data-c="The bar from the dining room" aria-label="Open photo: The bar from the dining room"><img src="gallery/fb-21.jpg" alt="The bar from the dining room" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="32" data-c="The back bar" aria-label="Open photo: The back bar"><img src="gallery/fb-32.jpg" alt="The back bar" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="04" data-c="Drinks headed out from the bar" aria-label="Open photo: Drinks headed out from the bar"><img src="gallery/fb-04.jpg" alt="Drinks headed out from the bar" loading="lazy"></button><button type="button" class="gx-open" data-g="inside" data-n="09" data-c="Dinner by the bay-door windows" aria-label="Open photo: Dinner by the bay-door windows"><img src="gallery/fb-09.jpg" alt="Dinner by the bay-door windows" loading="lazy"></button></div><div class="by-strip" data-by-body="drinks" hidden><button type="button" class="gx-open" data-g="drinks" data-n="46" data-c="Cherry Limeade" aria-label="Open photo: Cherry Limeade"><img src="gallery/fb-46.jpg" alt="Cherry Limeade" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="33" data-c="A cocktail poured under the torch sign" aria-label="Open photo: A cocktail poured under the torch sign"><img src="gallery/fb-33.jpg" alt="A cocktail poured under the torch sign" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="27" data-c="A margarita with a chile-salt rim" aria-label="Open photo: A margarita with a chile-salt rim"><img src="gallery/fb-27.jpg" alt="A margarita with a chile-salt rim" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="39" data-c="Two cocktails at the bar" aria-label="Open photo: Two cocktails at the bar"><img src="gallery/fb-39.jpg" alt="Two cocktails at the bar" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="42" data-c="A martini on the patio rail" aria-label="Open photo: A martini on the patio rail"><img src="gallery/fb-42.jpg" alt="A martini on the patio rail" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="44" data-c="A cocktail being shaken" aria-label="Open photo: A cocktail being shaken"><img src="gallery/fb-44.jpg" alt="A cocktail being shaken" loading="lazy"></button><button type="button" class="gx-open" data-g="drinks" data-n="20" data-c="A pour at the bar" aria-label="Open photo: A pour at the bar"><img src="gallery/fb-20.jpg" alt="A pour at the bar" loading="lazy"></button></div><div class="by-strip" data-by-body="patio" hidden><button type="button" class="gx-open" data-g="patio" data-n="35" data-c="A full table on the patio" aria-label="Open photo: A full table on the patio"><img src="gallery/fb-35.jpg" alt="A full table on the patio" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="34" data-c="The patio on a busy evening" aria-label="Open photo: The patio on a busy evening"><img src="gallery/fb-34.jpg" alt="The patio on a busy evening" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="28" data-c="The station at dusk" aria-label="Open photo: The station at dusk"><img src="gallery/fb-28.jpg" alt="The station at dusk" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="13" data-c="Friends on the patio" aria-label="Open photo: Friends on the patio"><img src="gallery/fb-13.jpg" alt="Friends on the patio" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="29" data-c="Burgers · Pizza · Wings, under the canopy" aria-label="Open photo: Burgers · Pizza · Wings, under the canopy"><img src="gallery/fb-29.jpg" alt="Burgers · Pizza · Wings, under the canopy" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="00" data-c="The patio under the red umbrellas" aria-label="Open photo: The patio under the red umbrellas"><img src="gallery/fb-00.jpg" alt="The patio under the red umbrellas" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="22" data-c="The patio from above" aria-label="Open photo: The patio from above"><img src="gallery/fb-22.jpg" alt="The patio from above" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="23" data-c="The station from Raleigh Road" aria-label="Open photo: The station from Raleigh Road"><img src="gallery/fb-23.jpg" alt="The station from Raleigh Road" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="37" data-c="Under the canopy" aria-label="Open photo: Under the canopy"><img src="gallery/fb-37.jpg" alt="Under the canopy" loading="lazy"></button><button type="button" class="gx-open" data-g="patio" data-n="38" data-c="Lunch on the patio" aria-label="Open photo: Lunch on the patio"><img src="gallery/fb-38.jpg" alt="Lunch on the patio" loading="lazy"></button></div></div></div></div>
 </section>
 
 
@@ -3967,6 +4064,29 @@ window.addEventListener('scroll', () => {
     b.setAttribute('aria-expanded', open ? 'true' : 'false'); b.textContent = open ? 'Show less −' : 'Read the full story +';
     window.dispatchEvent(new Event('resize'));
   });
+})();
+</script>
+<script>
+/* ══ PICK A BAY, reworked ══ */
+(function(){
+  var sec = document.querySelector('.gx-bays2'); if (!sec) return;
+  [].forEach.call(sec.querySelectorAll('.by'), function(v){
+    var tabs = v.querySelectorAll('[data-by]'), bodies = v.querySelectorAll('[data-by-body]'), big = v.querySelector('.by-big'), busy = 0;
+    function pick(tab){
+      [].forEach.call(tabs, function(o){ o.setAttribute('aria-selected', o === tab ? 'true' : 'false'); });
+      function swap(){ [].forEach.call(bodies, function(x){ x.hidden = x.dataset.byBody !== tab.dataset.by; }); }
+      if (!big) return swap();
+      /* one big door: it rolls down, the bay changes behind it, it rolls back up */
+      big.classList.add('shut'); clearTimeout(busy);
+      busy = setTimeout(function(){ big.querySelector('img').src = tab.dataset.cover; swap(); setTimeout(function(){ big.classList.remove('shut'); }, 120); }, 520);
+    }
+    [].forEach.call(tabs, function(tb){ tb.addEventListener('click', function(){ if (tb.getAttribute('aria-selected') !== 'true') pick(tb); }); });
+    if (big) big.addEventListener('click', function(){ var first = v.querySelector('[data-by-body]:not([hidden]) .gx-open'); if (first) first.click(); });
+  });
+  var sw = document.querySelector('.by-switch'); if (!sw) return;
+  function set(k){ sec.setAttribute('data-bays', k); [].forEach.call(sw.querySelectorAll('[data-bays-opt]'), function(b){ b.setAttribute('aria-pressed', b.dataset.baysOpt === k ? 'true' : 'false'); }); window.dispatchEvent(new Event('resize')); }
+  [].forEach.call(sw.querySelectorAll('[data-bays-opt]'), function(b){ b.addEventListener('click', function(){ set(b.dataset.baysOpt); }); });
+  set(new URLSearchParams(location.search).get('bays') || sec.getAttribute('data-bays'));
 })();
 </script>
 </body></html>
