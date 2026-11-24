@@ -2222,6 +2222,14 @@ html[class] .bh-anatomy .bh-kicker,html .bh-anatomy .bh-kicker{background:#1A1A1
 .rx-btn.ghost:hover{background:#1A1A18;color:#F5F0E6}
 .bh-cue{color:#1A1A18!important}
 @media(max-width:768px){.rx-side{display:none}.rx-final{bottom:84px;width:calc(100vw - 2rem);justify-content:center}.rx-btn{padding:1rem 1.1rem;font-size:.8rem}}
+
+/* phones: ingredient labels as small tags at the screen edges (23 Nov 2026) */
+@media(max-width:768px){
+  .bh-label{width:max-content!important;max-width:33vw;gap:.2rem}
+  .bh-label.l{text-align:left}
+  .bh-label span{background:#F5F0E6;border:1.5px solid #1A1A18;padding:4px 6px 2px;font-size:.66rem!important;line-height:1.1;box-shadow:2px 2px 0 rgba(26,26,24,.85)}
+  .bh-label i{width:8px}
+}
 </style>
 
 <style id="cav-flip">
@@ -2609,7 +2617,7 @@ html[data-sl][data-fit="3"] .timeline-photo-wrap{height:calc(min(520px,58vw) - v
           if (mobile) stack(ctx, [['MEET', 1], ['ME AT', -1], ['THE', -1], ['CAVALIER', -1]], vw, top, avail, lh);
           else fill(ctx, [['MEET ME', 1], ['AT THE', -1], ['CAVALIER', -1]], vw, top, avail, lh); }
         if (ae > 0) { ctx.globalAlpha = ae;
-          if (mobile) stack(ctx, [['YOUR', -1], ['TABLE', -1], ['IS', -1], ['WAITING.', -1]], vw, top, avail - 70, lh);
+          if (mobile) stack(ctx, [['YOUR', -1], ['TABLE IS', -1], ['WAITING.', -1]], vw, top, Math.max(120, y + h * .285 - top), lh);  /* phones: all the words sit above the closed burger */
           else fill(ctx, [['YOUR TABLE', -1], ['IS WAITING.', -1]], vw, top, avail - 90, lh); }
       }
       ctx.restore();
@@ -2622,6 +2630,19 @@ html[data-sl][data-fit="3"] .timeline-photo-wrap{height:calc(min(520px,58vw) - v
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
+  /* phones: the burger is nearly as wide as the screen, so the labels are pulled in to the screen edges as tags */
+  function fitLabels(){
+    var st = document.querySelector('#hero .bh-stage'); if (!st) return;
+    var vw = document.documentElement.clientWidth, sl = vw / 2 - st.offsetWidth / 2, pad = 8;  /* the stage is centred on the screen */
+    [].forEach.call(st.querySelectorAll('.bh-label'), function(el){
+      el.style.marginLeft = ''; el.style.marginRight = '';
+      if (vw > 768) return;
+      var left = sl + el.offsetLeft, right = left + el.offsetWidth;
+      if (el.classList.contains('l')) { el.style.marginRight = (left - pad) + 'px'; }
+      else { el.style.marginLeft = (vw - pad - right) + 'px'; }
+    });
+  }
+  addEventListener('resize', function(){ setTimeout(fitLabels, 60); }); addEventListener('load', function(){ setTimeout(fitLabels, 60); });
   var go = function(){ ready = true; window.dispatchEvent(new Event('resize')); };
   if (document.fonts && document.fonts.load) document.fonts.load('800 100px Rokkitt').then(go, go); else go();
 })();
