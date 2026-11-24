@@ -2602,6 +2602,15 @@ html[data-sl] .gx-bays2[data-bays="2"]{margin-bottom:35vh}
 }
 </style>
 
+<style id="cav-dwell">
+/* ══ SCROLL HOLD (23 Nov 2026). --dwell is how far you scroll before the next section starts to cover this one. To undo: delete this block. ══ */
+html{--dwell:42vh}
+html[data-sl] #hero,html[data-sl] .fx,html[data-sl] #menu.mo,html[data-sl] .gx-bays2,html[data-sl] #hours{margin-bottom:var(--dwell)!important}
+/* a held section must reach the bottom of the window, or the hold would show the section behind it */
+html[data-sl] #menu.mo,html[data-sl] #hours{min-height:calc(100vh - 72px);min-height:calc(100svh - 72px)}
+@media(max-width:768px){html[data-sl] #menu.mo,html[data-sl] #hours{min-height:calc(100vh - 120px);min-height:calc(100svh - 120px)}}
+</style>
+
 <!-- NAV -->
 <header id="navbar">
   <div class="nav-inner">
