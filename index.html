@@ -2432,6 +2432,70 @@ html[data-sl][data-fit="3"] .timeline-photo-wrap{height:calc(min(520px,58vw) - v
 @media(max-width:768px){.sx-switch{bottom:72px}}
 </style>
 
+<style id="cav-phonefit">
+/* ══ PHONE FIT (23 Nov 2026). Phones only. To undo: delete this block and the phone-fit script. ══ */
+.pf-more{display:none}
+@media(max-width:768px){
+  /* black section under the hero: keep the last line above the Directions bar */
+  .fx-simple .fx-pin{padding-bottom:118px!important}
+
+  /* menu: heading, category buttons and one whole card on one screen */
+  #menu.mo{padding-top:28px!important;padding-bottom:44px!important}
+  #menu .mo-sub,#menu .mo-foot{display:none!important}
+  #menu .mo-head{margin-bottom:14px!important}
+  #menu .ic-chips{margin-bottom:14px!important}
+  #menu .ic-note{margin-bottom:10px!important}
+  #menu .ic-ph{aspect-ratio:4/3!important}
+  #menu .ic-grid{padding-bottom:.8rem!important}
+
+  /* gallery: four bay doors in one row, nine photos in a 3 x 3 grid */
+  .gx.gx-bays{padding-top:28px!important;padding-bottom:44px!important}
+  .gx-bays .gx-sub{display:none!important}
+  .gx-bays .gx-head{margin-bottom:12px!important}
+  .gx-bays .gb-doors{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px!important;padding:4px!important}
+  .gx-bays .gb-door{aspect-ratio:1/1!important}
+  .gx-bays .gb-lbl{flex-direction:column;align-items:flex-start;gap:3px;padding:1rem .35rem .4rem!important}
+  .gx-bays .gb-lbl i{font-size:.52rem!important;letter-spacing:.14em!important}
+  .gx-bays .gb-lbl b{font-size:.62rem!important;letter-spacing:.03em!important;line-height:1.05!important}
+  .gx-bays .gb-body{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:4px!important}
+  .gx-bays .gb-body .gx-open:nth-child(n+10){display:none!important}
+  .gx-bays .gb-bodies{padding-bottom:4px!important}
+
+  /* menu and gallery fill the window and hold for a short stretch, so there is time to tap before the next section slides over */
+  html[data-sl] #menu.mo,html[data-sl] .gx.gx-bays{min-height:calc(100vh - 120px);min-height:calc(100svh - 120px);margin-bottom:32vh}
+
+  /* our story: the opening and the quote on one screen, the rest behind a tap; the ticket fits a screen of its own */
+  .about-soul{padding-top:28px!important;padding-bottom:52px!important}
+  .about-soul .soul-inner{gap:28px!important}
+  .about-soul .soul-inner > .fade-up:first-child > p:nth-of-type(n+2){display:none}
+  .about-soul.pf-open .soul-inner > .fade-up:first-child > p:nth-of-type(n+2){display:block}
+  .about-soul .pull-quote{margin:18px 0!important}
+  .pf-more{display:inline-flex;align-items:center;gap:.5rem;margin-top:4px;padding:.8rem 1.1rem;background:transparent;border:2px solid #1A1A18;color:#1A1A18;font:700 .78rem/1 var(--font-cond);letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+  .about-soul .service-ticket{padding:1.5rem 1.4rem!important}
+
+  /* hours: the table on one screen; address, a shorter map and both map buttons on the next */
+  #hours{padding-top:28px!important;padding-bottom:52px!important}
+  #hours .hours-info-card{margin-top:1.2rem!important;padding:1.1rem!important}
+  #hours .hours-inner{gap:16px!important}
+  #hours .map-frame,#hours .map-frame iframe{min-height:220px!important;height:220px!important}
+  #hours .map-wrap{gap:12px!important}
+  #hours .fu-dir-row{flex-wrap:nowrap!important;gap:.5rem!important}
+  #hours .fu-dir-row > *{flex:1 1 0;min-width:0;justify-content:center;text-align:center;padding-left:.4rem!important;padding-right:.4rem!important;font-size:.7rem!important;letter-spacing:.1em!important;white-space:nowrap}
+
+  /* contact form: one screen */
+  #contact{padding-top:28px!important;padding-bottom:44px!important}
+  #contact .contact-form{margin-bottom:18px!important}
+  #contact .contact-form textarea{min-height:0!important;height:84px!important}
+  #contact .divider,#contact .social-note{display:none!important}
+  #contact .social-links{margin-bottom:0!important}
+
+  /* footer: clear of the Directions bar */
+  footer{padding-top:34px!important;padding-bottom:78px!important}
+  footer .footer-logo{margin-bottom:22px!important}
+  footer .footer-nav,footer .footer-info,footer .footer-divider{margin-bottom:20px!important}
+}
+</style>
+
 <!-- NAV -->
 <header id="navbar">
   <div class="nav-inner">
@@ -3888,6 +3952,21 @@ window.addEventListener('scroll', () => {
   fit(new URLSearchParams(location.search).get('fit') || '2');
   var qs = new URLSearchParams(location.search);
   set(qs.get('seam') || 'curve'); slide((qs.get('slide') || '1') === '1');
+})();
+</script>
+<script>
+/* ══ PHONE FIT: "read the full story" ══ */
+(function(){
+  var soul = document.querySelector('.about-soul'), first = soul && soul.querySelector('.soul-inner > .fade-up');
+  if (!first) return;
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'pf-more'; b.setAttribute('aria-expanded', 'false');
+  b.textContent = 'Read the full story +';
+  first.appendChild(b);
+  b.addEventListener('click', function(){
+    var open = soul.classList.toggle('pf-open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false'); b.textContent = open ? 'Show less −' : 'Read the full story +';
+    window.dispatchEvent(new Event('resize'));
+  });
 })();
 </script>
 </body></html>
