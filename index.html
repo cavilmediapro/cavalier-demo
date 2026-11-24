@@ -2785,16 +2785,80 @@ html[data-sl] #menu.mo,html[data-sl] #hours{min-height:calc(100vh - 72px);min-he
     var y = top + (availH - tot * k) / 2; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = CREAM;
     lines.forEach(function(l, i){ var sz = sizes[i] * k; ctx.font = '800 ' + sz + 'px ' + FONT; line(ctx, l[0], l[1], vw / 2, y + sz * .8); y += sz * lh; });
   }
+  /* HERO WORDS (opening): each line can be nudged up or down, resized, and split around the burger. */
+  var CFG_DEF = {"desk": {"size": 1, "lh": 0.86, "lines": [{"t": ["MEET", "ME"], "dy": -0.2, "push": 0.15, "dx": 0, "s": 1}, {"t": ["AT", "THE"], "dy": 0, "push": 0.62, "dx": 0, "s": 1}, {"t": ["CAVALIER"], "dy": 0, "push": 0, "dx": 0, "s": 1}]}, "phone": {"size": 1, "lh": 0.86, "lines": [{"t": ["MEET", "ME"], "dy": 0, "push": 0, "dx": 0, "s": 1, "at": "above"}, {"t": ["AT", "THE"], "dy": 0, "push": 0, "dx": 0, "s": 1, "at": "above"}, {"t": ["CAVALIER"], "dy": 0, "push": 0, "dx": 0, "s": 1, "at": "below"}]}, "tab": {"size": 0.78, "lh": 0.95, "lines": [{"t": ["MEET", "ME"], "dy": -0.42, "push": 0.15, "dx": 0, "s": 1}, {"t": ["AT", "THE"], "dy": 0, "push": 0.62, "dx": 0, "s": 1}, {"t": ["CAVALIER"], "dy": 0.3, "push": 0, "dx": 0, "s": 1}]}, "tabp": {"size": 0.83, "lh": 1.05, "lines": [{"t": ["MEET", "ME"], "dy": -0.55, "push": 0.15, "dx": 0, "s": 1}, {"t": ["AT", "THE"], "dy": 0, "push": 0.62, "dx": 0, "s": 1}, {"t": ["CAVALIER"], "dy": 0.55, "push": 0, "dx": 0, "s": 1}]}};
+  var CFG = {"desk": {"size": 0.83, "lh": 1.05, "lines": [{"t": ["MEET", "ME"], "dy": -0.26, "push": 0, "dx": 0, "s": 1, "rdx": 0, "rdy": 0, "rs": 1}, {"t": ["AT", "THE"], "dy": 0.02, "push": 0.62, "dx": -0.19, "s": 1, "rdx": 1, "rdy": 0, "rs": 1}, {"t": ["CAVALIER"], "dy": 0.23, "push": 0, "dx": 0, "s": 1}]}, "tab": {"size": 0.78, "lh": 0.95, "lines": [{"t": ["MEET", "ME"], "dy": -0.42, "push": 0.15, "dx": 0, "s": 1}, {"t": ["AT", "THE"], "dy": 0, "push": 0.62, "dx": 0, "s": 1}, {"t": ["CAVALIER"], "dy": 0.3, "push": 0, "dx": 0, "s": 1}]}, "tabp": {"size": 0.83, "lh": 1.05, "lines": [{"t": ["MEET", "ME"], "dy": -0.55, "push": 0.15, "dx": 0, "s": 1}, {"t": ["AT", "THE"], "dy": 0, "push": 0.62, "dx": 0, "s": 1}, {"t": ["CAVALIER"], "dy": 0.55, "push": 0, "dx": 0, "s": 1}]}, "phone": {"size": 1, "lh": 0.86, "lines": [{"t": ["MEET", "ME"], "dy": 0, "push": 0, "dx": 0, "s": 1, "at": "above"}, {"t": ["AT", "THE"], "dy": 0, "push": 0, "dx": 0, "s": 1, "at": "above"}, {"t": ["CAVALIER"], "dy": 0, "push": 0, "dx": 0, "s": 1, "at": "below"}]}};
+  try { var saved = window.CAV_WORDS_EDIT && JSON.parse(localStorage.getItem('cav-words') || 'null'); if (saved && saved.desk && saved.phone) CFG = saved; } catch (e) {}
+  ['tab', 'tabp'].forEach(function(k){ if (!CFG[k]) CFG[k] = JSON.parse(JSON.stringify(CFG_DEF[k])); });
+  window.CAV_WORDS = { cfg: CFG, def: CFG_DEF, v: 0 };
+  /* phone up to 768 px wide; tablet 769-1199 (upright or sideways); desktop 1200 and up */
+  function layoutKey(vw, vh){ return vw <= 768 ? 'phone' : vw < 1200 ? (vh > vw ? 'tabp' : 'tab') : 'desk'; }
+  function layoutFor(vw, vh){ return CFG[layoutKey(vw, vh)]; }
+  window.CAV_WORDS.key = layoutKey;
+  /* inner edge of the small EST (left) and 2025 (right) labels */
+  function side(k, dflt){ var e = document.querySelector('.rx-side.rx-' + k); if (!e) return dflt; var r = e.getBoundingClientRect(); return r.width ? (k === 'l' ? r.right : r.left) : dflt; }
+  /* where the drawing surface starts on screen, so the Directions bar can be measured in its terms */
+  function cvTop(){ var c = document.querySelector('#hero .bh-canvas'); return c ? Math.max(0, c.getBoundingClientRect().top) : 0; }
+  function words(ctx, L, vw, top, availH, mobile, bw, fy, fh){
+    ctx.textBaseline = 'alphabetic'; ctx.fillStyle = CREAM; ctx.font = '800 100px ' + FONT;
+    var sp = ctx.measureText(' ').width / 100, W = vw * (mobile ? .94 : .965);
+    function em(x){ return ctx.measureText(x).width / 100; }
+    /* largest size at which a line, with its words pushed apart and shifted, still fits the width */
+    function fit(l){
+      var nat = 0; l.t.forEach(function(x){ nat += em(x); });
+      return W / (nat + (l.t.length - 1) * sp + 2 * (l.push || 0) + 2 * Math.abs(l.dx || 0));
+    }
+    var z0 = L.lines.map(fit);
+    if (!mobile) { var m = Math.min.apply(null, z0); z0 = z0.map(function(){ return m; }); }
+    var tot = z0.reduce(function(a, b){ return a + b * L.lh; }, 0), k = Math.min(1, availH * (mobile ? .96 : .93) / tot);
+    var z = z0.map(function(v, i){ return v * k * L.size * L.lines[i].s; });
+    tot = z.reduce(function(a, b){ return a + b * L.lh; }, 0);
+    var y = top + (availH - tot) / 2, tops = null;
+    /* phone: lines marked "above" stack just over the burger, "below" just under it, so they read at any phone height */
+    if (L.lines.every(function(l){ return l.at; }) && fh) {
+      var gT = fy + fh * .284, gB = fy + fh * .70, lim = Math.min(top + availH, innerHeight - cvTop() - 74), up = [], dn = [];  /* 74: clear of the Directions bar */
+      L.lines.forEach(function(l, i){ (l.at === 'below' ? dn : up).push(i); });
+      var hu = up.reduce(function(a, i){ return a + z[i] * L.lh; }, 0), hd = dn.reduce(function(a, i){ return a + z[i] * L.lh; }, 0);
+      var ya = Math.max(top, gT + (up.length ? z[up[up.length - 1]] * .12 : 0) - hu), yb = Math.min(lim - hd, gB - (dn.length ? z[dn[0]] * .12 : 0));
+      tops = []; up.forEach(function(i){ tops[i] = ya; ya += z[i] * L.lh; }); dn.forEach(function(i){ tops[i] = yb; yb += z[i] * L.lh; });
+    }
+    L.lines.forEach(function(l, i){
+      if (tops) y = tops[i];
+      var s = z[i], base = y + s * (.8 + l.dy); ctx.font = '800 ' + s + 'px ' + FONT;
+      if (!tops) base = Math.min(base, top + availH);  /* a line nudged down never drops off the bottom of the screen */
+      var cx = vw / 2 + (l.dx || 0) * s;
+      if (l.t.length === 2) {
+        /* the line is laid out as normal, then each word moves outward by "push" */
+        var wl = ctx.measureText(l.t[0]).width, wr = ctx.measureText(l.t[1]).width, x0 = cx - (wl + sp * s + wr) / 2, pu = (l.push || 0) * s;
+        /* the second word ("THE") can also be moved and resized by itself */
+        var lx = x0 + wl / 2 - pu, lsz = s, rx = x0 + wl + sp * s + wr / 2 + pu + (l.rdx || 0) * s, rsz = s * (l.rs || 1);
+        ctx.font = '800 ' + rsz + 'px ' + FONT; var wr2 = ctx.measureText(l.t[1]).width, wl2 = wl;
+        if (!mobile && l.clear !== false && l.t[1] === 'THE') {
+          /* AT and THE always stay clear of the burger and inside the EST / 2025 labels, whatever the screen size:
+             a word that would slip behind the burger moves out, and one that would then cross a label gets a little smaller */
+          var pad = 14, bL = vw / 2 - bw / 2 - pad, bR = vw / 2 + bw / 2 + pad, eL = side('l', 0) + pad, eR = side('r', vw) - pad;
+          /* each word keeps to its own space: AT between EST and the burger, THE between the burger and 2025 */
+          function place(x, w, lo, hi){ if (x + w / 2 > hi) x = hi - w / 2; if (x - w / 2 < lo) x = lo + w / 2; return x; }
+          lx = place(lx, wl2, eL, bL); rx = place(rx, wr2, bR, eR);
+          /* if either word is too wide for its space, both shrink by the same amount so AT and THE stay matched */
+          var k = Math.max(.4, Math.min(1, (bL - eL) / wl2, (eR - bR) / wr2));
+          if (k < 1) { lsz *= k; rsz *= k; wl2 *= k; wr2 *= k; lx = place(lx, wl2, eL, bL); rx = place(rx, wr2, bR, eR); }
+        }
+        ctx.font = '800 ' + lsz + 'px ' + FONT; line(ctx, l.t[0], -1, lx, base);
+        ctx.font = '800 ' + rsz + 'px ' + FONT; line(ctx, l.t[1], -1, rx, base + (l.rdy || 0) * s);
+      } else line(ctx, l.t[0], -1, cx, base);
+      y += s * L.lh;
+    });
+  }
   window.CAV_RX = {
-    key: function(){ var p = prog(); return (ready ? 1 : 0) + ':' + Math.round(aOpen(p) * 24) + ':' + Math.round(aEnd(p) * 24); },
+    key: function(){ var p = prog(); return (ready ? 1 : 0) + ':' + window.CAV_WORDS.v + ':' + Math.round(aOpen(p) * 24) + ':' + Math.round(aEnd(p) * 24); },
     paint: function(ctx, vw, vh, x, y, w, h, mobile, navH){
       ctx.save(); ctx.fillStyle = BLACK; ctx.fillRect(0, 0, vw, vh);
       if (ready) {
         var p = prog(), top = navH + (mobile ? 6 : 10), avail = vh - top - (mobile ? 84 : 12), lh = .86;
         var ao = aOpen(p), ae = aEnd(p);
         if (ao > 0) { ctx.globalAlpha = ao;
-          if (mobile) stack(ctx, [['MEET', 1], ['ME AT', -1], ['THE', -1], ['CAVALIER', -1]], vw, top, avail, lh);
-          else fill(ctx, [['MEET ME', 1], ['AT THE', -1], ['CAVALIER', -1]], vw, top, avail, lh); }
+          words(ctx, layoutFor(vw, vh), vw, top, avail, mobile, w * 348 / 480, y, h); }
         if (ae > 0) { ctx.globalAlpha = ae;
           if (mobile) stack(ctx, [['YOUR', -1], ['TABLE IS', -1], ['WAITING.', -1]], vw, top, Math.max(120, y + h * .285 - top), lh);  /* phones: all the words sit above the closed burger */
           else fill(ctx, [['YOUR TABLE', -1], ['IS WAITING.', -1]], vw, top, avail - 90, lh); }
