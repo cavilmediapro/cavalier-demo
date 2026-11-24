@@ -2611,6 +2611,37 @@ html[data-sl] #menu.mo,html[data-sl] #hours{min-height:calc(100vh - 72px);min-he
 @media(max-width:768px){html[data-sl] #menu.mo,html[data-sl] #hours{min-height:calc(100vh - 120px);min-height:calc(100svh - 120px)}}
 </style>
 
+<style id="cav-flipboard">
+/* ══ FLIP BOARD + BURGER LABELS (23 Nov 2026). To undo: delete this block and the flip-board script. ══ */
+/* burger labels: bigger, two lines */
+.bh-label{white-space:nowrap}
+.bh-label span{font-size:1.32rem!important;line-height:1.02!important}
+.bh-label.l span{text-align:right}
+@media(min-width:769px) and (max-width:1199px){.bh-label span{font-size:1.14rem!important}}
+@media(max-width:768px){
+  .bh-label{max-width:42vw!important}
+  .bh-label span,.bh-label.l span{font-size:.84rem!important;line-height:1.08!important;padding:5px 7px 3px!important;text-align:left}
+}
+/* limited availability: a stamped tag under the burger's name */
+.bh-limited{display:inline-block;margin-top:.9rem;padding:.45rem .75rem .38rem;color:#6B1523;background:#F5F0E6;
+  box-shadow:inset 0 0 0 2px #6B1523,inset 0 0 0 4px #F5F0E6,inset 0 0 0 5px #6B1523;
+  font:800 .8rem/1 var(--font-cond);letter-spacing:.24em;text-transform:uppercase;transform:rotate(-2.5deg)}
+@media(min-width:769px) and (max-width:1199px){.bh-limited{font-size:.62rem;letter-spacing:.16em;padding:.38rem .55rem .32rem}}
+@media(max-width:768px){.bh-limited{margin-top:.55rem;font-size:.68rem;padding:.4rem .6rem .34rem}}
+/* split-flap letters */
+.sfw{display:inline}
+.sf{display:inline-block;text-align:center;position:relative;clip-path:inset(-.3em 0)}
+.sf.spin{animation:sfFlap .07s linear}
+.sf.spin::after{content:'';position:absolute;left:0;right:0;top:52%;height:max(1px,.035em);background:rgba(0,0,0,.6)}
+@keyframes sfFlap{from{transform:perspective(500px) rotateX(-70deg);opacity:.65}to{transform:none;opacity:1}}
+.sf-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pb.flip .pb-row{animation:none!important}
+/* the open/closed line styles every span inside it (dot + flex); keep that off the letter cells */
+.pb-live .sfw,.pb-live .sf-sr{display:inline!important;gap:0!important}
+.pb-live .sf{display:inline-block!important}
+.pb-live .sfw::before,.pb-live .sf::before,.pb-live .sf-sr::before{content:none!important;display:none!important}
+</style>
+
 <!-- NAV -->
 <header id="navbar">
   <div class="nav-inner">
@@ -2916,19 +2947,20 @@ html[data-sl] #menu.mo,html[data-sl] #hours{min-height:calc(100vh - 72px);min-he
     <div class="bh-anatomy">
       <div class="bh-kicker">Signature Burger</div>
       <h2>The Monster <em>Jam</em></h2>
+      <div class="bh-limited">Limited availability</div>
       <p>Two smashed patties, house bacon jam and melted pepperjack pimento cheese on toasted brioche.</p>
     </div>
 
     <!-- Labels + finale ride on the burger's own coordinates -->
     <div class="bh-stage">
-      <div class="bh-label r" data-y="150" data-x="390"><span>Toasted Brioche Bun</span><i></i></div>
-      <div class="bh-label l" data-y="235" data-x="85"><span>Bacon Jam</span><i></i></div>
-      <div class="bh-label r" data-y="283" data-x="375"><span>Pickle Chips</span><i></i></div>
-      <div class="bh-label l" data-y="315" data-x="127"><span>Red Onion</span><i></i></div>
-      <div class="bh-label r" data-y="355" data-x="382"><span>Vine Tomato</span><i></i></div>
-      <div class="bh-label l" data-y="408" data-x="66"><span>Green Leaf Lettuce</span><i></i></div>
-      <div class="bh-label r" data-y="470" data-x="397"><span>Two Smashed Patties</span><i></i></div>
-      <div class="bh-label l" data-y="540" data-x="83"><span>Pepperjack Pimento Cheese</span><i></i></div>
+      <div class="bh-label r" data-y="150" data-x="390"><span>Toasted<br>Brioche Bun</span><i></i></div>
+      <div class="bh-label l" data-y="235" data-x="85"><span>Bacon<br>Jam</span><i></i></div>
+      <div class="bh-label r" data-y="283" data-x="375"><span>Pickle<br>Chips</span><i></i></div>
+      <div class="bh-label l" data-y="315" data-x="127"><span>Red<br>Onion</span><i></i></div>
+      <div class="bh-label r" data-y="355" data-x="382"><span>Vine<br>Tomato</span><i></i></div>
+      <div class="bh-label l" data-y="408" data-x="66"><span>Green Leaf<br>Lettuce</span><i></i></div>
+      <div class="bh-label r" data-y="470" data-x="397"><span>Two Smashed<br>Patties</span><i></i></div>
+      <div class="bh-label l" data-y="540" data-x="83"><span>Pepperjack<br>Pimento Cheese</span><i></i></div>
 
       <div class="bh-finale top" data-y="188">
         <div class="bh-kicker">Now Serving</div>
@@ -4160,6 +4192,60 @@ window.addEventListener('scroll', () => {
   function set(k){ sec.setAttribute('data-bays', k); [].forEach.call(sw.querySelectorAll('[data-bays-opt]'), function(b){ b.setAttribute('aria-pressed', b.dataset.baysOpt === k ? 'true' : 'false'); }); window.dispatchEvent(new Event('resize')); }
   [].forEach.call(sw.querySelectorAll('[data-bays-opt]'), function(b){ b.addEventListener('click', function(){ set(b.dataset.baysOpt); }); });
   set(new URLSearchParams(location.search).get('bays') || sec.getAttribute('data-bays'));
+})();
+</script>
+<script>
+/* ══ FLIP BOARD: letters spin through the alphabet and settle, like an old departure board ══ */
+(function(){
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var CH = 'ABCDEFGHIJKLMNOPRSTUVWXYZ0123456789', TICK = 55;
+  /* turn an element's text into letter cells; returns the cells in reading order */
+  function cells(el){
+    var sr = el.querySelector(':scope > .sf-sr'), txt = sr ? sr.textContent : el.textContent;
+    el.textContent = '';
+    var s = document.createElement('span'); s.className = 'sf-sr'; s.textContent = txt; el.appendChild(s);
+    var w = document.createElement('span'); w.className = 'sfw'; w.setAttribute('aria-hidden', 'true'); el.appendChild(w);
+    var out = [];
+    for (var i = 0; i < txt.length; i++) {
+      var c = txt[i];
+      if (/[A-Za-z0-9]/.test(c)) { var x = document.createElement('span'); x.className = 'sf'; x.textContent = c; x.dataset.c = c; w.appendChild(x); out.push(x); }
+      else w.appendChild(document.createTextNode(c));
+    }
+    out.forEach(function(x){ x.style.width = x.getBoundingClientRect().width + 'px'; });
+    return out;
+  }
+  function spin(x, steps, done){
+    var n = 0;
+    (function step(){
+      x.classList.remove('spin'); void x.offsetWidth; x.classList.add('spin');
+      if (n++ >= steps) { x.textContent = x.dataset.c; setTimeout(function(){ x.classList.remove('spin'); x.style.width = ''; done && done(); }, 80); return; }
+      x.textContent = CH[(Math.random() * CH.length) | 0];
+      setTimeout(step, TICK);
+    })();
+  }
+  /* groups: list of elements; each group starts a little later than the one before */
+  function play(groups, lead, gap){
+    groups.forEach(function(el, g){
+      cells(el).forEach(function(x, k){ spin(x, lead + g * gap + k); });
+    });
+  }
+  function watch(box, groupsOf, lead, gap, thr){
+    if (!box || !('IntersectionObserver' in window)) return;
+    var armed = true;
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.isIntersecting && e.intersectionRatio >= thr) { if (armed) { armed = false; play(groupsOf(), lead, gap); } }
+      else if (!e.isIntersecting) armed = true;
+    }); }, { threshold: [0, thr] }).observe(box);
+  }
+  function go(){
+    /* black section: each word starts after the one before */
+    var fx = document.querySelector('.fx-simple');
+    watch(fx, function(){ return [].slice.call(fx.querySelectorAll('.fw')); }, 4, 2, .45);
+    /* hours board: each row after the one above */
+    var pb = document.querySelector('#find-us .pb');
+    watch(pb, function(){ return [].slice.call(pb.querySelectorAll('.pb-head, .pb-row > span, .pb-row > i')); }, 3, 2, .6);
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(go, go); else go();
 })();
 </script>
 </body></html>
