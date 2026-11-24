@@ -2135,6 +2135,295 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 @media(max-width:768px){.gx-switch{bottom:72px}}
 </style>
 
+<style id="cav-typemoves">
+/* ══ TYPE MOVES — bold, simple type from the Design Elevation appendix (23 Nov 2026). To undo: delete this block, the numbers strip and the type script; the .tm-row wrappers are harmless. ══ */
+.tm-row{display:contents}
+.about-soul .soul-inner > div:first-child > .tm-row > h2{font-family:var(--font-display);font-weight:800;text-transform:uppercase;letter-spacing:.04em;line-height:.98;font-size:clamp(2.2rem,3.6vw,3.2rem)}
+.about-soul .soul-inner > div:first-child > .tm-row > h2 em{font-style:normal;color:var(--maroon)}
+.tm-nums{display:none}
+html.tm{--tm-ink:#1A1A18;--tm-cream:#F5F0E6}
+
+/* 1 · work-order openers: rule, black tag and a big left heading on one line */
+html.tm :has(> .tm-row){text-align:left!important;border-top:3px solid var(--tm-ink);padding-top:1.1rem;justify-items:start}
+html.tm .tm-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;margin-bottom:.9rem;justify-content:flex-start}
+html.tm .tm-row .section-label{order:0;display:inline-block!important;margin:0!important;background:var(--tm-ink)!important;color:var(--tm-cream)!important;border-radius:0!important;box-shadow:none!important;
+  font:800 .74rem/1 var(--font-cond)!important;letter-spacing:.2em!important;padding:.42rem .6rem!important;transform:translateY(-.5em)}
+html.tm .tm-row .section-label::before,html.tm .tm-row .section-label::after{display:none!important}
+html.tm .tm-row h2{margin:0!important;text-align:left!important;font-size:clamp(2.5rem,5.6vw,4.4rem)!important;line-height:.92!important;letter-spacing:.03em!important}
+html.tm .mo-head,html.tm .gx-head{max-width:none}
+html.tm .mo-sub,html.tm .gx-sub{margin:0!important;text-align:left;max-width:52ch}
+/* 2 · billboard words */
+html.tm .tm-bb h2{font-size:clamp(3.4rem,10.5vw,8.2rem)!important;line-height:.84!important;letter-spacing:.015em!important}
+html.tm .tm-bb{gap:.6rem 1.2rem}
+/* the dark contact band: same system in cream */
+html.tm #contact :has(> .tm-row){border-top-color:var(--tm-cream)}
+html.tm #contact .tm-row .section-label{background:var(--tm-cream)!important;color:var(--tm-ink)!important}
+html.tm #contact .tm-row h2{color:var(--tm-cream)}
+#contact .fade-up > p{color:rgba(245,240,230,.68)!important}
+
+/* 3 · hours as a measured table */
+html.tm #hours .hours-row{padding:.7rem 0;gap:1.5rem;border-bottom:1px solid rgba(26,26,24,.14)}
+html.tm #hours .hours-row .hours-day{white-space:nowrap}
+html.tm #hours .hours-row:first-of-type{border-top:3px solid var(--tm-ink)}
+html.tm #hours .hours-day{font:700 1.05rem/1.2 var(--font-cond)!important;letter-spacing:.1em;text-transform:uppercase;color:var(--tm-ink)}
+html.tm #hours .hours-time{font:800 1.3rem/1.1 var(--font-display)!important;letter-spacing:.02em;color:var(--tm-ink);font-variant-numeric:tabular-nums;text-transform:lowercase}
+html.tm #hours .hours-closed{font:700 1rem/1.2 var(--font-cond)!important;letter-spacing:.14em;color:rgba(26,26,24,.4);text-decoration:none}
+html.tm #hours .hours-row:has(.hours-closed) .hours-day{color:rgba(26,26,24,.4)}
+html.tm #hours .hours-row.tm-today{background:#EADFD6;box-shadow:inset 4px 0 0 #6B1523;padding-left:.8rem;padding-right:.8rem}
+html.tm #hours .hours-row.tm-today .hours-day::after{content:" · Today";color:#6B1523}
+
+/* 4 · numbers strip */
+html.tm .tm-nums{display:block;padding:4.5rem 1.5rem 1rem}
+.tm-nums-in{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:3px solid #1A1A18}
+.tm-num{display:grid;gap:.5rem;padding:1.2rem 1.2rem .4rem 0;min-width:0}
+.tm-num + .tm-num{border-left:1px solid rgba(26,26,24,.18);padding-left:1.4rem}
+.tm-num b{font:800 clamp(3rem,8vw,6.4rem)/.86 var(--font-display);letter-spacing:.01em;color:#1A1A18;font-variant-numeric:tabular-nums}
+.tm-num b i{font-style:normal;color:#6B1523}
+.tm-num span{font:700 .76rem/1.3 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:rgba(26,26,24,.6)}
+@media(max-width:640px){.tm-nums-in{grid-template-columns:1fr}.tm-num + .tm-num{border-left:0;border-top:1px solid rgba(26,26,24,.18);padding-left:0}}
+
+/* 5 · one voice for the small print */
+html.tm .bh-eyebrow{color:var(--tm-ink)!important;letter-spacing:.2em}
+html.tm .bh-eyebrow::before,html.tm .bh-eyebrow::after{display:none!important}
+html.tm .bh-kicker{display:inline-block;background:var(--tm-ink);color:var(--tm-cream)!important;padding:.38rem .55rem;letter-spacing:.2em}
+html.tm .btn-primary,html.tm .bh-btn-ghost,html.tm .btn-outline-cream,html.tm .btn-directions,html.tm .gx-more button{border-radius:0!important;border-width:3px!important}
+html.tm .bh-btn-ghost,html.tm .btn-outline-cream,html.tm .btn-directions{border-color:var(--tm-ink)!important;color:var(--tm-ink)!important}
+html.tm .bh-btn-ghost:hover,html.tm .btn-outline-cream:hover,html.tm .btn-directions:hover{background:var(--tm-ink)!important;color:var(--tm-cream)!important}
+html.tm .ic-p{font-family:var(--font-display)!important;font-weight:800}
+html.tm .ic-chips button{border-radius:0}
+
+/* preview switch */
+.tm-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:120;display:flex;align-items:center;gap:3px;padding:6px;background:#1A1A18;border:2px solid #F2B43C;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.tm-switch span{font:800 .62rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:#F2B43C;padding:0 8px;white-space:nowrap}
+.tm-switch button{font:700 .74rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;color:#F5F0E6;background:transparent;border:0;padding:9px 12px;cursor:pointer;white-space:nowrap}
+.tm-switch button[aria-pressed="true"]{background:#6B1523}
+@media(max-width:768px){.tm-switch{bottom:72px}}
+</style>
+
+<style id="cav-herorech">
+/* ══ HERO · Rechabite black screen (23 Nov 2026). To undo: delete this block, the hero script below, the rx-* markup and the CAV_RX lines in the hero code. ══ */
+#hero.bh .bh-pin{background:#F5F0E6!important}
+.rx-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;margin:0!important;padding:0!important}
+/* the opening copy stays in the page for search and screen readers; the words you see are painted behind the burger */
+.bh-intro-inner{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;padding:0!important}
+.rx-side{position:absolute;top:50%;transform:translateY(-50%);font:800 1rem/1 var(--font-cond);letter-spacing:.24em;text-transform:uppercase;color:#1A1A18}
+.rx-l{left:2.2vw}.rx-r{right:2.2vw}
+/* middle: ingredient labels in cream on black */
+.bh-anatomy h2{color:#1A1A18!important}
+.bh-anatomy h2 em{color:#6B1523!important}
+html[class] .bh-anatomy .bh-kicker,html .bh-anatomy .bh-kicker{background:#1A1A18!important;color:#F5F0E6!important}
+.bh-label span{color:#1A1A18!important}
+/* end: the painted words replace the finale heading; our own buttons replace the finale buttons */
+.bh-finale{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important}
+.rx-final{position:absolute;z-index:5;left:50%;bottom:calc(5vh + var(--bh-flow,0px));transform:translateX(-50%);display:flex;gap:.8rem;opacity:0;visibility:hidden;transition:none}
+.rx-btn{font:800 .9rem/1 var(--font-cond);letter-spacing:.16em;text-transform:uppercase;padding:1.15rem 2rem;background:#6B1523;color:#F5F0E6;border:2px solid #6B1523;white-space:nowrap}
+.rx-btn:hover{background:#4A0D17;border-color:#4A0D17}
+.rx-btn.ghost{background:transparent;color:#1A1A18;border-color:#1A1A18}
+.rx-btn.ghost:hover{background:#1A1A18;color:#F5F0E6}
+.bh-cue{color:#1A1A18!important}
+@media(max-width:768px){.rx-side{display:none}.rx-final{bottom:84px;width:calc(100vw - 2rem);justify-content:center}.rx-btn{padding:1rem 1.1rem;font-size:.8rem}}
+</style>
+
+<style id="cav-flip">
+/* ══ THE FLIP — the section under the hero (23 Nov 2026). To undo: delete this block, the .fx section(s) and the flip script. ══ */
+.fx{--fx-bg:#F5F0E6;--fx-fg:#1A1A18;--fx-acc:#6B1523;--fx-tile:#1A1A18;--fx-tfg:#F5F0E6;--fx-tacc:#6B1523;--fx-taccfg:#F5F0E6;--fx-nav:72px;
+  position:relative;padding:0!important;margin:0;background:var(--fx-bg);color:var(--fx-fg)}
+html[data-fxg="dark"] .fx{--fx-bg:#111110;--fx-fg:#F5F0E6;--fx-acc:#F2B43C;--fx-tile:#F5F0E6;--fx-tfg:#111110;--fx-tacc:#F2B43C;--fx-taccfg:#111110}
+.fx-sr{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;margin:0!important}
+.fx-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;box-sizing:border-box;display:flex;flex-direction:column;gap:.9rem;
+  padding:calc(var(--fx-nav) + 1rem) max(1.4rem,3vw) 1.2rem}
+.fx-top{flex:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;border-top:3px solid var(--fx-fg);padding-top:.7rem}
+.fx-tag{font:800 .74rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;background:var(--fx-fg);color:var(--fx-bg);padding:.42rem .6rem}
+.fx-note,.fx-foot{font:700 .78rem/1.2 var(--font-cond);letter-spacing:.18em;text-transform:uppercase;color:var(--fx-fg)}
+.fx-note,.fx-foot span{opacity:.62}
+.fx-body{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center}
+.fx-foot{flex:none;display:flex;justify-content:space-between;gap:1rem}
+.fx-flip{height:300vh}.fx-door{height:380vh}.fx-fill{height:340vh}
+@media(max-width:768px){.fx{--fx-nav:60px}.fx-pin{padding:calc(var(--fx-nav) + .8rem) 1rem 84px;gap:.7rem}.fx-note{font-size:.66rem}}
+/* reduced motion: no pinning, every option shows its finished state */
+.fx.fx-static{height:auto!important}
+.fx.fx-static .fx-pin{position:relative;min-height:80vh}
+
+/* 1 · split-flap sign board */
+.fb{display:grid;grid-template-columns:repeat(var(--cols,14),var(--tw,60px));gap:var(--tg,8px);justify-content:center}
+.fb-t{position:relative;width:var(--tw,60px);height:calc(var(--tw,60px)*var(--tr,1.3));perspective:calc(var(--tw,60px)*6)}
+.fb-c{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.fb-c i{position:absolute;inset:0;display:grid;place-items:center;font:800 calc(var(--tw,60px)*.84)/1 var(--font-display);font-style:normal;text-transform:uppercase;
+  background:var(--fx-tile);color:var(--fx-tfg);border-radius:calc(var(--tw,60px)*.07);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.fb-c i::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--fx-bg);opacity:.5}
+.fb-c i.b{transform:rotateX(180deg)}
+.fb-t.acc .fb-c i.b{background:var(--fx-tacc);color:var(--fx-taccfg)}
+.fb-yr{display:flex;align-items:baseline;gap:.6rem;color:var(--fx-fg)}
+.fb-yr small{font:700 .72rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+.fb-yr b{font:800 1.7rem/1 var(--font-display);font-variant-numeric:tabular-nums;color:var(--fx-acc)}
+
+/* 2 · bay door */
+.fd-pin{padding:0;display:block}
+.fd-w1{position:absolute;z-index:1;width:max-content;font:800 100px/.86 var(--font-display);text-transform:uppercase;letter-spacing:.01em;color:var(--fx-fg);white-space:nowrap}
+.fd-box{position:absolute;z-index:2;overflow:hidden;background:#111110;box-shadow:0 0 0 var(--fd-b,10px) #1A1A18,0 30px 60px -20px rgba(0,0,0,.55)}
+.fd-new,.fd-old{position:absolute;inset:0}
+.fd-new img,.fd-old img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.fd-new .fd-m{display:none}
+.fd-new::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,13,12,.72),rgba(13,13,12,.42))}
+.fd-old{will-change:transform;box-shadow:0 14px 0 #1A1A18,0 40px 50px rgba(0,0,0,.6)}
+.fd-old img{filter:sepia(.5) saturate(.75) contrast(.96)}
+.fd-slats{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 calc(12.5% - 3px),rgba(26,26,24,.55) calc(12.5% - 3px) 12.5%)}
+.fd-cap{position:absolute;left:1.2rem;bottom:1.2rem;font:800 .74rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;background:#F5F0E6;color:#1A1A18;padding:.42rem .6rem;opacity:0}
+.fd-w2{position:absolute;z-index:3;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:var(--fx-nav) 1rem 0;color:#F5F0E6;text-align:center;opacity:0;pointer-events:none}
+.fd-w2 i{font:800 .9rem/1 var(--font-cond);font-style:normal;letter-spacing:.24em;text-transform:uppercase;background:#F5F0E6;color:#1A1A18;padding:.5rem .8rem}
+.fd-w2l{width:max-content;font:800 100px/.86 var(--font-display);text-transform:uppercase;letter-spacing:.01em;white-space:nowrap}
+.fd-w2l span:nth-of-type(n+3){color:#F2B43C}
+@media(max-width:768px){
+  .fd-w1 span,.fd-w2l span{display:block}.fd-w2l br{display:none}
+  .fd-w1{text-align:center}
+  .fd-new .fd-d{display:none}.fd-new .fd-m{display:block}
+  .fd-w2{padding-bottom:72px}
+}
+
+/* 3 · words that fill, pictures set into the type */
+.fw-wrap{width:max-content;display:flex;flex-direction:column;align-items:center;font:800 100px/.9 var(--font-display);text-transform:uppercase;letter-spacing:.01em;color:var(--fx-fg)}
+.fl{white-space:nowrap;text-align:center}
+.fw{display:inline-block;opacity:.13;will-change:opacity,transform}
+.fw-food.on{color:var(--fx-acc)}
+.fw-food{transition:color .3s}
+.fw-flip{transform:rotateX(180deg);transform-origin:50% 54%}
+.fg{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;gap:.06em}
+.fw-chip{display:inline-block;flex:none;height:.72em;width:calc(1.22em*var(--o,0));margin-left:calc(.16em*var(--o,0));border-radius:.36em;overflow:hidden;box-shadow:0 0 0 calc(.03em*var(--o,0)) var(--fx-fg)}
+.fw-chip img{width:100%;height:100%;object-fit:cover;max-width:none}
+.fw-wrap.measure .fw-chip{--o:1}
+@media(max-width:768px){.fl{display:contents}.fl > .fw,.fl > .fg{display:flex}.fl > .fw{justify-content:center}}
+
+/* 5 · simple: one screen, no pinning; the words rise in once */
+.fx-simple{height:auto}
+.fx-simple .fw{opacity:0;transform:translateY(.28em);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*70ms)}
+.fx-simple .fw-food{color:var(--fx-acc)}
+.fx-simple .fw-flip{transform:rotateX(180deg)}
+.fx-simple.in .fw{opacity:1;transform:none}
+.fx-simple.in .fw-flip{transition-duration:.7s,1.3s}
+@media(max-width:768px){.fx-simple .fl:last-child{display:flex;gap:.22em;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.fx-simple .fw{opacity:1!important;transform:none!important;transition:none}}
+
+/* 4 · the drive past */
+.fr-pin{padding-left:0;padding-right:0;padding-bottom:0;gap:0}
+.fr-pin .fx-top{margin:0 max(1.4rem,3vw)}
+.fr-stage{flex:1;min-height:0;position:relative;overflow:hidden}
+.fr-road{position:absolute;left:0;right:0;bottom:0;height:13vh;background:var(--fx-fg)}
+.fr-dash{position:absolute;left:0;right:0;top:50%;height:6px;margin-top:-3px;background-image:repeating-linear-gradient(90deg,var(--fx-bg) 0 64px,transparent 64px 128px)}
+.fr-track{position:absolute;left:0;bottom:13vh;width:max-content;display:flex;align-items:flex-end;gap:.34em;padding:0 34vw 0 8vw;white-space:nowrap;will-change:transform;
+  font:800 min(17vh,30vw)/.84 var(--font-display);text-transform:uppercase;letter-spacing:.01em;color:var(--fx-fg)}
+.fr-w{display:block;padding-bottom:.1em}
+.fr-col{display:flex;flex-direction:column;align-items:center;gap:.16em}
+
+.fr-acc{color:var(--fx-acc)}
+.fr-mark{position:relative;align-self:flex-end;font:800 .2em/1 var(--font-cond);letter-spacing:.14em;background:var(--fx-fg);color:var(--fx-bg);padding:.55em .75em;margin:0 .6em 2.6em}
+.fr-mark::after{content:"";position:absolute;left:50%;top:100%;width:.22em;height:2.6em;margin-left:-.11em;background:var(--fx-fg)}
+.fr-ph{flex:none;position:relative;margin:0;height:1.85em;aspect-ratio:4/3;overflow:hidden;background:#111110;border:.05em solid var(--fx-fg);transform:rotate(-3deg);box-shadow:0 .12em .3em -.1em rgba(0,0,0,.5)}
+.fr-ph img{width:100%;height:100%;object-fit:cover;max-width:none}
+.fr-old img{filter:sepia(.5) saturate(.75)}
+.fr-ph figcaption{position:absolute;left:.5em;bottom:.5em;font:800 .09em/1 var(--font-cond);letter-spacing:.18em;background:#F5F0E6;color:#1A1A18;padding:.5em .7em}
+.fr-round{aspect-ratio:1;border-radius:50%;transform:rotate(4deg)}
+.fr-tall{aspect-ratio:4/5;transform:rotate(3deg)}
+.fr-cut{flex:none;height:1.75em;width:auto;max-width:none;margin-bottom:-.1em;filter:drop-shadow(0 .12em .14em rgba(0,0,0,.4))}
+.fr-end{align-self:center;display:grid;gap:.5em;font-size:.2em;letter-spacing:.06em;margin-left:1em}
+.fr-end small{font:800 .8em/1 var(--font-cond);letter-spacing:.22em;color:var(--fx-acc)}
+.fr-end b{font:800 2.2em/1 var(--font-display)}
+.fr-go{position:absolute;right:max(1.4rem,3vw);top:1rem;z-index:3;font:800 .82rem/1 var(--font-cond);letter-spacing:.16em;text-transform:uppercase;background:var(--fx-acc);color:var(--fx-bg);padding:1rem 1.4rem;opacity:0;visibility:hidden}
+@media(max-width:768px){.fr-road{bottom:72px;height:11vh}.fr-track{bottom:calc(72px + 11vh)}.fr-pin .fx-top{margin:0 1rem}}
+.fx-static .fr-track{position:static;flex-wrap:wrap;white-space:normal;width:auto;transform:none!important;font-size:min(9vh,12vw);padding:2rem 1rem}
+
+/* preview switcher */
+html.fx-prev .fx-pin:not(.fd-pin):not(.fr-pin){padding-bottom:104px}
+.fx-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:120;display:grid;gap:4px;padding:6px;background:#1A1A18;border:2px solid #F2B43C;box-shadow:0 8px 30px rgba(0,0,0,.35);max-width:calc(100vw - 20px)}
+.fx-switch > div{display:flex;align-items:center;gap:3px;overflow-x:auto}
+.fx-switch span{font:800 .62rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:#F2B43C;min-width:58px;padding:0 6px;white-space:nowrap}
+.fx-switch button{font:700 .72rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;color:#F5F0E6;background:transparent;border:0;padding:8px 10px;cursor:pointer;white-space:nowrap}
+.fx-switch button[aria-pressed="true"]{background:#6B1523}
+@media(max-width:768px){.fx-switch{bottom:72px;width:calc(100vw - 20px)}}
+</style>
+
+<style id="cav-seams">
+/* ══ SECTION TRANSITIONS (23 Nov 2026). To undo: delete this block and the transitions script. ══ */
+.sx{display:none;position:relative;margin:0;padding:0;overflow:hidden;background:var(--a);pointer-events:none}
+html[data-sx] .sx{display:block;height:var(--h)}
+.sx::before{content:"";position:absolute;inset:0 0 -1px;background:var(--b)}
+/* the address band's straight amber lines would fight the new edges */
+html[data-sx] .fu-band{border-top-width:0!important;border-bottom-width:0!important}
+html[data-sx] .timeline-bar,html[data-sx] .about-soul,html[data-sx] footer{border-top-width:0!important}
+
+html[data-sx="diag"] .sx{--h:clamp(40px,6.5vw,104px)}
+html[data-sx="diag"] .sx::before{clip-path:polygon(0 100%,100% 0,100% 100%)}
+html[data-sx="diag"] .sx.alt::before{clip-path:polygon(0 0,100% 100%,0 100%)}
+
+html[data-sx="roof"] .sx{--h:clamp(28px,4.6vw,74px)}
+html[data-sx="roof"] .sx::before{clip-path:polygon(0 100%,50% 0,100% 100%)}
+
+html[data-sx="curve"] .sx{--h:clamp(34px,6vw,96px)}
+html[data-sx="curve"] .sx::before{clip-path:ellipse(72% 100% at 50% 100%)}
+
+html[data-sx="ticket"] .sx{--h:20px}
+html[data-sx="ticket"] .sx::before{-webkit-mask:radial-gradient(circle 8px at 50% 0,transparent 97%,#000) 0 0/26px 100% repeat-x;mask:radial-gradient(circle 8px at 50% 0,transparent 97%,#000) 0 0/26px 100% repeat-x}
+
+html[data-sx="check"] .sx{--h:36px;background:repeating-conic-gradient(#1A1A18 0 25%,#F5F0E6 0 50%) 0 0/36px 36px}
+html[data-sx="check"] .sx::before{display:none}
+
+/* slanted band: the cut underneath runs at the same angle as the band (5vw over 100vw) */
+html[data-sx="band"] .sx{--h:calc(5vw + 72px)}
+html[data-sx="band"] .sx::before{clip-path:polygon(0 calc(100% - 36px),100% 36px,100% 100%,0 100%)}
+html[data-sx="band"] .sx::after{content:"BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  BURGERS  ★  PIZZA  ★  WINGS  ★  WALK-INS WELCOME  ★  ";position:absolute;left:-6%;width:112%;top:50%;height:2.5em;margin-top:-1.25em;display:flex;align-items:center;
+  white-space:pre;overflow:hidden;transform:rotate(-2.862deg);background:#F2B43C;color:#1A1A18;border-block:3px solid #1A1A18;
+  font:800 clamp(.95rem,1.7vw,1.5rem)/1 var(--font-display);letter-spacing:.06em;box-shadow:0 10px 24px -14px rgba(0,0,0,.6)}
+html[data-sx="band"] .sx.alt::after{text-indent:-9em}
+
+/* slide in: a section holds still once its end reaches the bottom of the screen, and the next one rises over it */
+html[data-sl] .sl-hold{position:sticky;top:var(--sl-top,0px)}
+html[data-sl] .sl-z{position:relative;z-index:var(--sl-z,1)}
+html[data-sl] .sl-hold.sl-z{position:sticky!important}
+/* only the curve itself is drawn: the strip around it is see-through and sits over the section above, so no straight edge shows */
+html[data-sl] .sx{background:transparent;margin-top:calc(-1*var(--h));z-index:var(--sl-z,1);margin-bottom:-2px;filter:drop-shadow(0 -10px 14px rgba(0,0,0,.18))}
+/* the photo section cannot sit under a flat-colour curve without a straight edge, so the photo itself gets the curved top */
+html[data-sl][data-sx="curve"] .sx:has(+ .timeline-bar){display:none}
+html[data-sl][data-sx="curve"] .timeline-bar{--h:clamp(34px,6vw,96px);margin-top:calc(-1*var(--h));
+  -webkit-mask:radial-gradient(72% 100% at 50% 100%,#000 calc(100% - 1px),transparent) top/100% var(--h) no-repeat,linear-gradient(#000,#000) 0 calc(var(--h) - 1px)/100% calc(100% - var(--h) + 1px) no-repeat;
+  mask:radial-gradient(72% 100% at 50% 100%,#000 calc(100% - 1px),transparent) top/100% var(--h) no-repeat,linear-gradient(#000,#000) 0 calc(var(--h) - 1px)/100% calc(100% - var(--h) + 1px) no-repeat}
+/* the timeline fills the screen under the menu bar and then holds for a stretch of scrolling, so there is time to tap the years before the next section slides over it */
+html[data-sl] .timeline-bar{display:flex;flex-direction:column;min-height:calc(100vh - 72px);min-height:calc(100svh - 72px);margin-bottom:70vh}
+html[data-sl] .timeline-bar .timeline-photo-wrap{flex:1 1 auto;height:auto}
+html[data-sl] .timeline-bar .timeline-controls{flex:none}
+/* phones: also stay clear of the fixed Directions bar at the bottom */
+@media(max-width:768px){html[data-sl] .timeline-bar{min-height:calc(100vh - 120px);min-height:calc(100svh - 120px)}}
+/* a section's own sheen or texture starts gently, so it does not draw a straight edge under the curve */
+html[data-sx] #find-us::before,html[data-sx] #about::before,html[data-sx] #about::after{-webkit-mask-image:linear-gradient(transparent,#000 160px);mask-image:linear-gradient(transparent,#000 160px)}
+/* the footer stays fixed at the bottom of the screen; the last section scrolls away to uncover it */
+html[data-sl] footer.sl-z{position:sticky!important;bottom:0;z-index:var(--sl-fz,0)!important;visibility:hidden}
+html[data-sl] footer.sl-z.sl-show{visibility:visible}
+html[data-sl] .sx.sx-foot{display:none}
+/* sections that are narrower than the page, or see-through, need a solid ground to slide over the one before */
+html[data-sl] .mo,html[data-sl] .gx{background:#F5F0E6;box-shadow:0 0 0 100vmax #F5F0E6;clip-path:inset(0 -100vmax)}
+html[data-sl] .tm-nums{background:#F5F0E6}
+.sl-mark{display:block;height:0}
+
+/* keeping the curve off the content of the section above (address band, timeline year buttons).
+   fit 1 = add empty space as tall as the curve · fit 2 = a shallower curve on those two seams · fit 3 = same height, content lifted */
+html{--sxh:clamp(34px,6vw,96px);--sxh2:clamp(17px,3vw,48px)}
+html[data-fit="1"],html[data-fit="3"]{--fitp:var(--sxh)}
+html[data-fit="2"]{--fitp:var(--sxh2)}
+html[data-sl][data-fit="2"] #find-us + .sx,html[data-sl][data-fit="2"] .timeline-bar + .sx{--h:var(--sxh2)}
+html[data-sl][data-fit="1"] #find-us,html[data-sl][data-fit="2"] #find-us{padding-bottom:var(--fitp)}
+html[data-sl][data-fit="3"] #find-us .fu-inner{padding-top:max(.75rem,calc(6.5rem - var(--sxh) - 6px));padding-bottom:calc(var(--sxh) + 6px)}
+html[data-sl][data-fit] .timeline-bar{padding-bottom:var(--fitp);background-color:#0D0B08!important}
+html[data-sl][data-fit] .timeline-caption{bottom:calc(72px + var(--fitp))}
+@media(max-width:480px){html[data-sl][data-fit] .timeline-caption{bottom:calc(60px + var(--fitp))}}
+@media(max-width:768px){html[data-sl][data-fit="3"] #find-us .fu-inner{padding-top:max(.75rem,calc(5rem - var(--sxh) - 6px))}}
+html[data-sl][data-fit="3"] .timeline-photo-wrap{height:calc(min(520px,58vw) - var(--sxh));min-height:calc(320px - var(--sxh))}
+
+/* preview switcher */
+.sx-switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:120;display:flex;align-items:center;gap:3px;padding:6px;background:#1A1A18;border:2px solid #F2B43C;box-shadow:0 8px 30px rgba(0,0,0,.35);max-width:calc(100vw - 20px);overflow-x:auto}
+.sx-switch span{font:800 .62rem/1 var(--font-cond);letter-spacing:.2em;text-transform:uppercase;color:#F2B43C;padding:0 8px;white-space:nowrap}
+.sx-switch button{font:700 .74rem/1 var(--font-cond);letter-spacing:.08em;text-transform:uppercase;color:#F5F0E6;background:transparent;border:0;padding:9px 11px;cursor:pointer;white-space:nowrap}
+.sx-switch button[aria-pressed="true"]{background:#6B1523}
+@media(max-width:768px){.sx-switch{bottom:72px}}
+</style>
+
 <!-- NAV -->
 <header id="navbar">
   <div class="nav-inner">
@@ -2231,10 +2520,26 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
       kc.width = im.naturalWidth; kc.height = im.naturalHeight;
       kx.drawImage(im, 0, 0);
       try {
+        /* holes fix (23 Nov 2026): only background that connects to the frame edge is keyed out */
         var d = kx.getImageData(0, 0, kc.width, kc.height), p = d.data;
-        for (var i = 0; i < p.length; i += 4) {
-          var dr = p[i] - b[0], dg = p[i+1] - b[1], db = p[i+2] - b[2], dist = Math.sqrt(dr*dr + dg*dg + db*db);
-          var a = dist <= 9 ? 0 : dist >= 46 ? 1 : (dist - 9) / 37;
+        var W = kc.width, H = kc.height, N = W * H, i, j, x, y, sp = 0;
+        if (!this._n || this._n !== N) { this._n = N; this._dist = new Float32Array(N); this._m = new Uint8Array(N); this._st = new Int32Array(N); }
+        var dist = this._dist, m = this._m, st = this._st; m.fill(0);
+        for (j = 0; j < N; j++) { i = j * 4; var dr = p[i] - b[0], dg = p[i+1] - b[1], db = p[i+2] - b[2]; dist[j] = Math.sqrt(dr*dr + dg*dg + db*db); }
+        function push(k){ if (!m[k] && dist[k] < 28) { m[k] = 1; st[sp++] = k; } }
+        for (x = 0; x < W; x++) { push(x); push(N - W + x); }
+        for (y = 0; y < H; y++) { push(y * W); push(y * W + W - 1); }
+        while (sp) { j = st[--sp]; x = j % W; if (x > 0) push(j - 1); if (x < W - 1) push(j + 1); if (j >= W) push(j - W); if (j < N - W) push(j + W); }
+        /* two more pixels inward so the burger keeps a soft edge */
+        for (var pass = 0; pass < 2; pass++) {
+          var add = [];
+          for (j = 0; j < N; j++) { if (m[j] || dist[j] >= 46) continue; x = j % W;
+            if ((x > 0 && m[j-1]) || (x < W - 1 && m[j+1]) || (j >= W && m[j-W]) || (j < N - W && m[j+W])) add.push(j); }
+          for (i = 0; i < add.length; i++) m[add[i]] = 1;
+        }
+        for (j = 0; j < N; j++) {
+          i = j * 4; if (!m[j]) { p[i+3] = 255; continue; }
+          var a = dist[j] <= 9 ? 0 : dist[j] >= 46 ? 1 : (dist[j] - 9) / 37;
           if (a < 1 && a > 0) {
             p[i] = Math.max(0, Math.min(255, (p[i] - b[0] * (1 - a)) / a));
             p[i+1] = Math.max(0, Math.min(255, (p[i+1] - b[1] * (1 - a)) / a));
@@ -2257,6 +2562,70 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
   mark();
 })();
 </script>
+<script>
+/* ══ HERO · Rechabite black screen ══ */
+(function(){
+  var hero = null, fin = null, ready = false;
+  var CREAM = '#1A1A18', BLACK = '#F5F0E6', FONT = 'Rokkitt, Rockwell, Georgia, serif';
+  function clamp(v, a, b){ return v < a ? a : v > b ? b : v; }
+  function range(p, a, b){ return clamp((p - a) / (b - a), 0, 1); }
+  function prog(){ hero = hero || document.getElementById('hero'); if (!hero) return 0; var r = hero.getBoundingClientRect(), tot = r.height - innerHeight; return tot > 0 ? clamp(-r.top / tot, 0, 1) : 0; }
+  /* words: full until the burger starts to open, gone by the time it is apart; finale words come in as it lands */
+  function aOpen(p){ return 1 - range(p, .09, .2); }
+  function aEnd(p){ return range(p, .86, .93); }
+  /* draw a line letter by letter so one letter can be mirrored, Rechabite style */
+  function line(ctx, text, flip, cx, base){
+    var ws = [], tw = 0; for (var i = 0; i < text.length; i++){ var cw = ctx.measureText(text[i]).width; ws.push(cw); tw += cw; }
+    var x = cx - tw / 2;
+    for (var j = 0; j < text.length; j++){
+      if (j === flip){ ctx.save(); ctx.translate(x + ws[j], base); ctx.scale(-1, 1); ctx.fillText(text[j], 0, 0); ctx.restore(); }
+      else ctx.fillText(text[j], x, base);
+      x += ws[j];
+    }
+  }
+  function fill(ctx, lines, vw, top, availH, lh){
+    ctx.font = '800 100px ' + FONT;
+    var w = 0; lines.forEach(function(l){ w = Math.max(w, ctx.measureText(l[0]).width); });
+    var size = Math.min(100 * vw * .965 / w, availH * .93 / (lines.length * lh));
+    ctx.font = '800 ' + size + 'px ' + FONT; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = CREAM;
+    var block = size * lh * lines.length, y0 = top + (availH - block) / 2;
+    lines.forEach(function(l, i){ line(ctx, l[0], l[1], vw / 2, y0 + size * (.8 + i * lh)); });
+  }
+  /* phones: every line sized to the full width on its own, poster style, then scaled to fit the height */
+  function stack(ctx, lines, vw, top, availH, lh){
+    var sizes = lines.map(function(l){ ctx.font = '800 100px ' + FONT; return 100 * vw * .94 / ctx.measureText(l[0]).width; });
+    var tot = sizes.reduce(function(a, b){ return a + b * lh; }, 0), k = Math.min(1, availH * .96 / tot);
+    var y = top + (availH - tot * k) / 2; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = CREAM;
+    lines.forEach(function(l, i){ var sz = sizes[i] * k; ctx.font = '800 ' + sz + 'px ' + FONT; line(ctx, l[0], l[1], vw / 2, y + sz * .8); y += sz * lh; });
+  }
+  window.CAV_RX = {
+    key: function(){ var p = prog(); return (ready ? 1 : 0) + ':' + Math.round(aOpen(p) * 24) + ':' + Math.round(aEnd(p) * 24); },
+    paint: function(ctx, vw, vh, x, y, w, h, mobile, navH){
+      ctx.save(); ctx.fillStyle = BLACK; ctx.fillRect(0, 0, vw, vh);
+      if (ready) {
+        var p = prog(), top = navH + (mobile ? 6 : 10), avail = vh - top - (mobile ? 84 : 12), lh = .86;
+        var ao = aOpen(p), ae = aEnd(p);
+        if (ao > 0) { ctx.globalAlpha = ao;
+          if (mobile) stack(ctx, [['MEET', 1], ['ME AT', -1], ['THE', -1], ['CAVALIER', -1]], vw, top, avail, lh);
+          else fill(ctx, [['MEET ME', 1], ['AT THE', -1], ['CAVALIER', -1]], vw, top, avail, lh); }
+        if (ae > 0) { ctx.globalAlpha = ae;
+          if (mobile) stack(ctx, [['YOUR', -1], ['TABLE', -1], ['IS', -1], ['WAITING.', -1]], vw, top, avail - 70, lh);
+          else fill(ctx, [['YOUR TABLE', -1], ['IS WAITING.', -1]], vw, top, avail - 90, lh); }
+      }
+      ctx.restore();
+    }
+  };
+  /* finale buttons follow the same fade as the finale words */
+  function tick(){
+    fin = fin || document.querySelector('.rx-final');
+    if (fin) { var a = aEnd(prog()); fin.style.opacity = a; fin.style.visibility = a > .02 ? 'visible' : 'hidden'; }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  var go = function(){ ready = true; window.dispatchEvent(new Event('resize')); };
+  if (document.fonts && document.fonts.load) document.fonts.load('800 100px Rokkitt').then(go, go); else go();
+})();
+</script>
 <!-- ① HERO -->
 <section id="hero" class="bh" aria-label="The Monster Jam Burger, layer by layer">
   <div class="bh-pin">
@@ -2265,6 +2634,7 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 
     <!-- Stage 1: intro -->
     <div class="bh-intro">
+      <div class="rx-side rx-l" aria-hidden="true">Est</div><div class="rx-side rx-r" aria-hidden="true">2025</div>
       <div class="bh-intro-inner">
         <div class="bh-copy">
           <div class="bh-eyebrow">Wilson, North Carolina</div>
@@ -2308,9 +2678,34 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
       </div>
     </div>
 
+    <div class="rx-final">
+      <a href="https://www.google.com/maps/dir/?api=1&amp;destination=The+Cavalier%2C+216+Raleigh+Rd+Pkwy+N%2C+Wilson%2C+NC+27893" target="_blank" rel="noopener noreferrer" class="rx-btn">Get Directions</a>
+      <a href="#menu" class="rx-btn ghost">View Menu</a>
+    </div>
+
     <a href="#menu" class="bh-cue" aria-label="Scroll down"><span>Scroll</span><svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
   </div>
 </section>
+
+<!-- THE FLIP -->
+<section class="fx fx-simple" data-fx="simple" aria-label="The story in one line">
+  <div class="fx-pin">
+    <div class="fx-top"><span class="fx-tag">The flip</span><span class="fx-note">216 Raleigh Rd Pkwy N · since 1970</span></div>
+    <div class="fx-body"><div class="fw-wrap" aria-hidden="true"><div class="fl"><span class="fw" style="--i:0">Old</span> <span class="fw" style="--i:1">service</span></div><div class="fl"><span class="fw" style="--i:2">gas</span> <span class="fw" style="--i:3">station,</span></div><div class="fl"><span class="fw fw-flip" style="--i:4">flipped</span> <span class="fw" style="--i:5">into</span></div><div class="fl"><span class="fw" style="--i:6">Wilson's</span> <span class="fw" style="--i:7">best</span></div><div class="fl"><span class="fw fw-food" style="--i:8">burgers,</span></div><div class="fl"><span class="fw fw-food" style="--i:9">pizza</span></div><div class="fl"><span class="fw" style="--i:10">&amp;</span> <span class="fw fw-food" style="--i:11">wings.</span></div></div></div>
+    <p class="fx-sr">Old service gas station, flipped into Wilson's best burgers, pizza and wings.</p>
+  </div>
+</section>
+
+<!-- ② MENU (What We Serve) -->
+<section id="menu" class="mo mo-cards" data-mo="cards" aria-label="The menu">
+  <div class="mo-head"><div class="tm-row tm-bb"><p class="section-label centered">What We Serve</p><h2>The Menu</h2></div>
+  <p class="mo-sub">Every item gets its own picture. See it, then order it at the counter.</p></div>
+  <div class="ic-chips" role="tablist" aria-label="Menu categories"><button type="button" role="tab" aria-selected="true" data-ic="burgers">Burgers &amp; Sandwiches</button><button type="button" role="tab" aria-selected="false" data-ic="pizza">Pizza</button><button type="button" role="tab" aria-selected="false" data-ic="wings">Wings</button><button type="button" role="tab" aria-selected="false" data-ic="salads">Salads &amp; Dessert</button><button type="button" role="tab" aria-selected="false" data-ic="kids">Kids</button><button type="button" role="tab" aria-selected="false" data-ic="cocktails">Cocktails</button><button type="button" role="tab" aria-selected="false" data-ic="draft">Draft Beer</button><button type="button" role="tab" aria-selected="false" data-ic="bottles">Bottled Beer</button><button type="button" role="tab" aria-selected="false" data-ic="cans">Canned Beer</button><button type="button" role="tab" aria-selected="false" data-ic="soft">Soft Drinks</button></div>
+  
+  <div class="ic-pane" data-ic-pane="burgers"><p class="ic-note">All served with fries, pasta salad, or side salad (+$1.50) · Add cheese +$1.50</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Double Stack All American</b></span></figure><div class="ic-body"><h4><span>Double Stack All American</span><b class="ic-p">$15</b></h4><p class="ic-d">2 patties – lettuce – tomato – onion – pickle – mayo</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Rib Sandwich</b></span></figure><div class="ic-body"><h4><span>Rib Sandwich</span><b class="ic-p">$14</b></h4><p class="ic-d">Boneless rib BBQ – pickle – onion · Limited availability</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Chicken Sandwich</b></span></figure><div class="ic-body"><h4><span>Chicken Sandwich</span><b class="ic-p">$15</b></h4><p class="ic-d">Fried or grilled chicken breast – lettuce – tomato – onion – pickle – mayo</p><p class="ic-s">★ Buffalo Style — Buffalo sauce – bleu cheese crumbles</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Sandwich of the Week</b></span></figure><div class="ic-body"><h4><span>Sandwich of the Week</span><b class="ic-p">$15</b></h4><p class="ic-d">Ask at the counter</p></div></article></div></div><div class="ic-pane" data-ic-pane="pizza" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Margherita</b></span></figure><div class="ic-body"><h4><span>Margherita</span><b class="ic-p">$16</b></h4><p class="ic-d">House pizza sauce, fresh mozzarella &amp; basil</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>White Pie</b></span></figure><div class="ic-body"><h4><span>White Pie</span><b class="ic-p">$16</b></h4><p class="ic-d">Alfredo sauce base, shredded mozzarella, grated parmesan, Italian herbs</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Kickin&#x27; Chicken</b></span></figure><div class="ic-body"><h4><span>Kickin&#x27; Chicken</span><b class="ic-p">$18</b></h4><p class="ic-d">Grilled chicken, Canadian bacon, jalapeños, pineapple</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Full Tank</b></span></figure><div class="ic-body"><h4><span>Full Tank</span><b class="ic-p">$18</b></h4><p class="ic-d">Pepperoni, Italian sausage, ground beef, bacon</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Build Your Own</b></span></figure><div class="ic-body"><h4><span>Build Your Own</span><b class="ic-p">$15</b></h4><p class="ic-d">Toppings $0.50 to $1.50 each</p><p class="ic-s">Pepperoni · Ground Beef · Banana Pepper · Grilled Chicken · Green Pepper · Olives · Italian Sausage · Onion · Pineapple · Bacon · Mushroom · Tomato · Canadian Bacon · Jalapeños · Basil</p></div></article></div></div><div class="ic-pane" data-ic-pane="wings" hidden><p class="ic-note">Six wings, choice of sauce · Served with carrots &amp; celery</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Wings</b></span></figure><div class="ic-body"><h4><span>Wings</span><b class="ic-p">$13</b></h4><p class="ic-pills"><em>Buffalo</em><em>Garlic Parm</em><em>Korean BBQ</em><em>BBQ</em></p></div></article></div></div><div class="ic-pane" data-ic-pane="salads" hidden><p class="ic-note">Ranch · Balsamic · Blue Cheese · Greek · Caesar · Add grilled or fried chicken +$5</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>House</b></span></figure><div class="ic-body"><h4><span>House</span><b class="ic-p">$11</b></h4><p class="ic-d">Mixed greens, tomato, cucumber, onion, cheddar, boiled egg, bacon, croutons</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Caesar</b></span></figure><div class="ic-body"><h4><span>Caesar</span><b class="ic-p">$11</b></h4><p class="ic-d">Romaine, Caesar dressing, croutons, grated parmesan</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Greek</b></span></figure><div class="ic-body"><h4><span>Greek</span><b class="ic-p">$11</b></h4><p class="ic-d">Mixed greens, tomato, cucumber, onion, green pepper, banana peppers, olives, feta</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Dessert</b></span></figure><div class="ic-body"><h4><span>Dessert</span></h4><p class="ic-d">Ask at the counter</p></div></article></div></div><div class="ic-pane" data-ic-pane="kids" hidden><p class="ic-note">All items $7</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Burger n Fries</b></span></figure><div class="ic-body"><h4><span>Burger n Fries</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Corn Dog n Fries</b></span></figure><div class="ic-body"><h4><span>Corn Dog n Fries</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Small Cheese Pizza</b></span></figure><div class="ic-body"><h4><span>Small Cheese Pizza</span><b class="ic-p">$7</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="cocktails" hidden><p class="ic-note">Every cocktail $12</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Spicy Mango Margarita</b></span></figure><div class="ic-body"><h4><span>Spicy Mango Margarita</span><b class="ic-p">$12</b></h4><p class="ic-d">Jalapeño tequila, mango purée, sour, soda water</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Cherry Limeade</b></span></figure><div class="ic-body"><h4><span>Cherry Limeade</span><b class="ic-p">$12</b></h4><p class="ic-d">Cherry vodka, lime juice, grenadine, Sprite</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Espresso Old Fashioned</b></span></figure><div class="ic-body"><h4><span>Espresso Old Fashioned</span><b class="ic-p">$12</b></h4><p class="ic-d">Bourbon, bitters, simple syrup, cold brew</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Fancy Pear</b></span></figure><div class="ic-body"><h4><span>Fancy Pear</span><b class="ic-p">$12</b></h4><p class="ic-d">Pear vodka, St. Germaine, sour, Prosecco</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Mayan Mule</b></span></figure><div class="ic-body"><h4><span>Mayan Mule</span><b class="ic-p">$12</b></h4><p class="ic-d">Jalapeño tequila, splash pineapple, ginger beer, lime</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Blue G&amp;T</b></span></figure><div class="ic-body"><h4><span>Blue G&amp;T</span><b class="ic-p">$12</b></h4><p class="ic-d">Empress Indigo gin, blueberry syrup, lemon, tonic</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Espresso Martini</b></span></figure><div class="ic-body"><h4><span>Espresso Martini</span><b class="ic-p">$12</b></h4><p class="ic-d">Vodka, Kahlua, cold brew, simple syrup</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>PBNJ &amp; Coke</b></span></figure><div class="ic-body"><h4><span>PBNJ &amp; Coke</span><b class="ic-p">$12</b></h4><p class="ic-d">Skrewball, Razzmatazz, Coke</p></div></article></div></div><div class="ic-pane" data-ic-pane="draft" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Miller Lite</b></span></figure><div class="ic-body"><h4><span>Miller Lite</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Blue Moon</b></span></figure><div class="ic-body"><h4><span>Blue Moon</span><b class="ic-p">$6</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Modelo</b></span></figure><div class="ic-body"><h4><span>Modelo</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Hazy IPA</b></span></figure><div class="ic-body"><h4><span>Hazy IPA</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="bottles" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Michelob Ultra</b></span></figure><div class="ic-body"><h4><span>Michelob Ultra</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Bud</b></span></figure><div class="ic-body"><h4><span>Bud</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Bud Light</b></span></figure><div class="ic-body"><h4><span>Bud Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coors Light</b></span></figure><div class="ic-body"><h4><span>Coors Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Corona</b></span></figure><div class="ic-body"><h4><span>Corona</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Miller High Life</b></span></figure><div class="ic-body"><h4><span>Miller High Life</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Natural Light</b></span></figure><div class="ic-body"><h4><span>Natural Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Stella</b></span></figure><div class="ic-body"><h4><span>Stella</span><b class="ic-p">$6</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Angry Orchard</b></span></figure><div class="ic-body"><h4><span>Angry Orchard</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="cans" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Atlantic Hard Cider</b></span></figure><div class="ic-body"><h4><span>Atlantic Hard Cider</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Pernicious</b></span></figure><div class="ic-body"><h4><span>Pernicious</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Guinness</b></span></figure><div class="ic-body"><h4><span>Guinness</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Voodoo Ranger IPA</b></span></figure><div class="ic-body"><h4><span>Voodoo Ranger IPA</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>White Claw</b></span></figure><div class="ic-body"><h4><span>White Claw</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="soft" hidden><p class="ic-note">Every soft drink $3</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coke</b></span></figure><div class="ic-body"><h4><span>Coke</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Diet Coke</b></span></figure><div class="ic-body"><h4><span>Diet Coke</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coke Zero</b></span></figure><div class="ic-body"><h4><span>Coke Zero</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Sprite</b></span></figure><div class="ic-body"><h4><span>Sprite</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Lemonade</b></span></figure><div class="ic-body"><h4><span>Lemonade</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Orange Fanta</b></span></figure><div class="ic-body"><h4><span>Orange Fanta</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Ginger Ale</b></span></figure><div class="ic-body"><h4><span>Ginger Ale</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Dr. Pepper</b></span></figure><div class="ic-body"><h4><span>Dr. Pepper</span><b class="ic-p">$3</b></h4></div></article></div></div>
+  <div class="mo-foot"><span>Walk in · order at the counter · dine in or take out</span><a href="#hours" class="btn-outline-cream">Hours &amp; Directions &rarr;</a></div>
+</section>
+
 
 <!-- FIND US BAND -->
 <section class="fu-band" id="find-us" aria-label="Find us">
@@ -2338,20 +2733,9 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 </section>
 
 
-<!-- ② MENU (What We Serve) -->
-<section id="menu" class="mo mo-cards" data-mo="cards" aria-label="The menu">
-  <div class="mo-head"><p class="section-label centered">What We Serve</p><h2>The Menu</h2>
-  <p class="mo-sub">Every item gets its own picture. See it, then order it at the counter.</p></div>
-  <div class="ic-chips" role="tablist" aria-label="Menu categories"><button type="button" role="tab" aria-selected="true" data-ic="burgers">Burgers &amp; Sandwiches</button><button type="button" role="tab" aria-selected="false" data-ic="pizza">Pizza</button><button type="button" role="tab" aria-selected="false" data-ic="wings">Wings</button><button type="button" role="tab" aria-selected="false" data-ic="salads">Salads &amp; Dessert</button><button type="button" role="tab" aria-selected="false" data-ic="kids">Kids</button><button type="button" role="tab" aria-selected="false" data-ic="cocktails">Cocktails</button><button type="button" role="tab" aria-selected="false" data-ic="draft">Draft Beer</button><button type="button" role="tab" aria-selected="false" data-ic="bottles">Bottled Beer</button><button type="button" role="tab" aria-selected="false" data-ic="cans">Canned Beer</button><button type="button" role="tab" aria-selected="false" data-ic="soft">Soft Drinks</button></div>
-  
-  <div class="ic-pane" data-ic-pane="burgers"><p class="ic-note">All served with fries, pasta salad, or side salad (+$1.50) · Add cheese +$1.50</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Double Stack All American</b></span></figure><div class="ic-body"><h4><span>Double Stack All American</span><b class="ic-p">$15</b></h4><p class="ic-d">2 patties – lettuce – tomato – onion – pickle – mayo</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Rib Sandwich</b></span></figure><div class="ic-body"><h4><span>Rib Sandwich</span><b class="ic-p">$14</b></h4><p class="ic-d">Boneless rib BBQ – pickle – onion · Limited availability</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Chicken Sandwich</b></span></figure><div class="ic-body"><h4><span>Chicken Sandwich</span><b class="ic-p">$15</b></h4><p class="ic-d">Fried or grilled chicken breast – lettuce – tomato – onion – pickle – mayo</p><p class="ic-s">★ Buffalo Style — Buffalo sauce – bleu cheese crumbles</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Sandwich of the Week</b></span></figure><div class="ic-body"><h4><span>Sandwich of the Week</span><b class="ic-p">$15</b></h4><p class="ic-d">Ask at the counter</p></div></article></div></div><div class="ic-pane" data-ic-pane="pizza" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Margherita</b></span></figure><div class="ic-body"><h4><span>Margherita</span><b class="ic-p">$16</b></h4><p class="ic-d">House pizza sauce, fresh mozzarella &amp; basil</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>White Pie</b></span></figure><div class="ic-body"><h4><span>White Pie</span><b class="ic-p">$16</b></h4><p class="ic-d">Alfredo sauce base, shredded mozzarella, grated parmesan, Italian herbs</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Kickin&#x27; Chicken</b></span></figure><div class="ic-body"><h4><span>Kickin&#x27; Chicken</span><b class="ic-p">$18</b></h4><p class="ic-d">Grilled chicken, Canadian bacon, jalapeños, pineapple</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Full Tank</b></span></figure><div class="ic-body"><h4><span>Full Tank</span><b class="ic-p">$18</b></h4><p class="ic-d">Pepperoni, Italian sausage, ground beef, bacon</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Build Your Own</b></span></figure><div class="ic-body"><h4><span>Build Your Own</span><b class="ic-p">$15</b></h4><p class="ic-d">Toppings $0.50 to $1.50 each</p><p class="ic-s">Pepperoni · Ground Beef · Banana Pepper · Grilled Chicken · Green Pepper · Olives · Italian Sausage · Onion · Pineapple · Bacon · Mushroom · Tomato · Canadian Bacon · Jalapeños · Basil</p></div></article></div></div><div class="ic-pane" data-ic-pane="wings" hidden><p class="ic-note">Six wings, choice of sauce · Served with carrots &amp; celery</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Wings</b></span></figure><div class="ic-body"><h4><span>Wings</span><b class="ic-p">$13</b></h4><p class="ic-pills"><em>Buffalo</em><em>Garlic Parm</em><em>Korean BBQ</em><em>BBQ</em></p></div></article></div></div><div class="ic-pane" data-ic-pane="salads" hidden><p class="ic-note">Ranch · Balsamic · Blue Cheese · Greek · Caesar · Add grilled or fried chicken +$5</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>House</b></span></figure><div class="ic-body"><h4><span>House</span><b class="ic-p">$11</b></h4><p class="ic-d">Mixed greens, tomato, cucumber, onion, cheddar, boiled egg, bacon, croutons</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Caesar</b></span></figure><div class="ic-body"><h4><span>Caesar</span><b class="ic-p">$11</b></h4><p class="ic-d">Romaine, Caesar dressing, croutons, grated parmesan</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Greek</b></span></figure><div class="ic-body"><h4><span>Greek</span><b class="ic-p">$11</b></h4><p class="ic-d">Mixed greens, tomato, cucumber, onion, green pepper, banana peppers, olives, feta</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Dessert</b></span></figure><div class="ic-body"><h4><span>Dessert</span></h4><p class="ic-d">Ask at the counter</p></div></article></div></div><div class="ic-pane" data-ic-pane="kids" hidden><p class="ic-note">All items $7</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Burger n Fries</b></span></figure><div class="ic-body"><h4><span>Burger n Fries</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Corn Dog n Fries</b></span></figure><div class="ic-body"><h4><span>Corn Dog n Fries</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Small Cheese Pizza</b></span></figure><div class="ic-body"><h4><span>Small Cheese Pizza</span><b class="ic-p">$7</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="cocktails" hidden><p class="ic-note">Every cocktail $12</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Spicy Mango Margarita</b></span></figure><div class="ic-body"><h4><span>Spicy Mango Margarita</span><b class="ic-p">$12</b></h4><p class="ic-d">Jalapeño tequila, mango purée, sour, soda water</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Cherry Limeade</b></span></figure><div class="ic-body"><h4><span>Cherry Limeade</span><b class="ic-p">$12</b></h4><p class="ic-d">Cherry vodka, lime juice, grenadine, Sprite</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Espresso Old Fashioned</b></span></figure><div class="ic-body"><h4><span>Espresso Old Fashioned</span><b class="ic-p">$12</b></h4><p class="ic-d">Bourbon, bitters, simple syrup, cold brew</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Fancy Pear</b></span></figure><div class="ic-body"><h4><span>Fancy Pear</span><b class="ic-p">$12</b></h4><p class="ic-d">Pear vodka, St. Germaine, sour, Prosecco</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Mayan Mule</b></span></figure><div class="ic-body"><h4><span>Mayan Mule</span><b class="ic-p">$12</b></h4><p class="ic-d">Jalapeño tequila, splash pineapple, ginger beer, lime</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Blue G&amp;T</b></span></figure><div class="ic-body"><h4><span>Blue G&amp;T</span><b class="ic-p">$12</b></h4><p class="ic-d">Empress Indigo gin, blueberry syrup, lemon, tonic</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Espresso Martini</b></span></figure><div class="ic-body"><h4><span>Espresso Martini</span><b class="ic-p">$12</b></h4><p class="ic-d">Vodka, Kahlua, cold brew, simple syrup</p></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>PBNJ &amp; Coke</b></span></figure><div class="ic-body"><h4><span>PBNJ &amp; Coke</span><b class="ic-p">$12</b></h4><p class="ic-d">Skrewball, Razzmatazz, Coke</p></div></article></div></div><div class="ic-pane" data-ic-pane="draft" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Miller Lite</b></span></figure><div class="ic-body"><h4><span>Miller Lite</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Blue Moon</b></span></figure><div class="ic-body"><h4><span>Blue Moon</span><b class="ic-p">$6</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Modelo</b></span></figure><div class="ic-body"><h4><span>Modelo</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Hazy IPA</b></span></figure><div class="ic-body"><h4><span>Hazy IPA</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="bottles" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Michelob Ultra</b></span></figure><div class="ic-body"><h4><span>Michelob Ultra</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Bud</b></span></figure><div class="ic-body"><h4><span>Bud</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Bud Light</b></span></figure><div class="ic-body"><h4><span>Bud Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coors Light</b></span></figure><div class="ic-body"><h4><span>Coors Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Corona</b></span></figure><div class="ic-body"><h4><span>Corona</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Miller High Life</b></span></figure><div class="ic-body"><h4><span>Miller High Life</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Natural Light</b></span></figure><div class="ic-body"><h4><span>Natural Light</span><b class="ic-p">$5</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Stella</b></span></figure><div class="ic-body"><h4><span>Stella</span><b class="ic-p">$6</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Angry Orchard</b></span></figure><div class="ic-body"><h4><span>Angry Orchard</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="cans" hidden><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Atlantic Hard Cider</b></span></figure><div class="ic-body"><h4><span>Atlantic Hard Cider</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Pernicious</b></span></figure><div class="ic-body"><h4><span>Pernicious</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Guinness</b></span></figure><div class="ic-body"><h4><span>Guinness</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Voodoo Ranger IPA</b></span></figure><div class="ic-body"><h4><span>Voodoo Ranger IPA</span><b class="ic-p">$7</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>White Claw</b></span></figure><div class="ic-body"><h4><span>White Claw</span><b class="ic-p">$6</b></h4></div></article></div></div><div class="ic-pane" data-ic-pane="soft" hidden><p class="ic-note">Every soft drink $3</p><div class="ic-grid"><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coke</b></span></figure><div class="ic-body"><h4><span>Coke</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Diet Coke</b></span></figure><div class="ic-body"><h4><span>Diet Coke</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Coke Zero</b></span></figure><div class="ic-body"><h4><span>Coke Zero</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Sprite</b></span></figure><div class="ic-body"><h4><span>Sprite</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Lemonade</b></span></figure><div class="ic-body"><h4><span>Lemonade</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Orange Fanta</b></span></figure><div class="ic-body"><h4><span>Orange Fanta</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Ginger Ale</b></span></figure><div class="ic-body"><h4><span>Ginger Ale</span><b class="ic-p">$3</b></h4></div></article><article class="ic-card"><figure class="ic-ph"><span class="ic-none"><i>Photo coming</i><b>Dr. Pepper</b></span></figure><div class="ic-body"><h4><span>Dr. Pepper</span><b class="ic-p">$3</b></h4></div></article></div></div>
-  <div class="mo-foot"><span>Walk in · order at the counter · dine in or take out</span><a href="#hours" class="btn-outline-cream">Hours &amp; Directions &rarr;</a></div>
-</section>
-
-
 <!-- PHOTO GALLERY -->
 <section class="gx gx-bays" data-gx="bays" aria-label="Photo gallery">
-  <div class="gx-head"><p class="section-label centered">Around The Station</p><h2>Pick A Bay</h2><p class="gx-sub">Four bay doors, four sides of the station. Pick one and it rolls up.</p></div>
+  <div class="gx-head"><div class="tm-row tm-bb"><p class="section-label centered">Around The Station</p><h2>Pick A Bay</h2></div><p class="gx-sub">Four bay doors, four sides of the station. Pick one and it rolls up.</p></div>
   <div class="gb-doors" role="tablist" aria-label="Photo groups"><button type="button" role="tab" class="gb-door" aria-selected="true" data-gb="food">
       <span class="gb-in"><img src="gallery/fb-41.jpg" alt=""></span><span class="gb-slats" aria-hidden="true"></span>
       <span class="gb-lbl"><i>Bay 1</i><b>The Kitchen</b><em>10 photos</em></span></button><button type="button" role="tab" class="gb-door" aria-selected="false" data-gb="drinks">
@@ -2441,8 +2825,7 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 <div class="about-soul">
   <div class="soul-inner">
     <div class="fade-up">
-      <p class="section-label">Our Story</p>
-      <h2>Service Station <em>Soul.</em></h2>
+      <div class="tm-row"><p class="section-label">Our Story</p><h2>Service Station <em>Soul.</em></h2></div>
       <p>When Jason Howard found the old 1970s service station at 216 Raleigh Road, the vision was immediately clear. Rather than strip away the history, we chose to celebrate it.</p>
       <p>From the authentic Sinclair, Esso, and Amoco porcelain signs adorning our walls, to the overhead bar light modeled directly after looking under the hood of an early model truck — every detail honors where we came from.</p>
       <div class="pull-quote">
@@ -2468,12 +2851,18 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 </div>
 
 
+<!-- TYPE · numbers strip -->
+<section class="tm-nums" aria-label="The Cavalier in numbers"><div class="tm-nums-in">
+  <div class="tm-num"><b>216</b><span>Raleigh Rd Pkwy N · Wilson</span></div>
+  <div class="tm-num"><b>197<i>0s</i></b><span>Service station, restored</span></div>
+  <div class="tm-num"><b>2025</b><span>Open for walk-ins</span></div>
+</div></section>
+
 <!-- ⑤ HOURS -->
 <section id="hours">
   <div class="hours-inner">
     <div class="fade-up">
-      <p class="section-label">Find Us</p>
-      <h2>Hours &amp; Info</h2>
+      <div class="tm-row"><p class="section-label">Find Us</p><h2>Hours &amp; Info</h2></div>
       <p class="fu-status fu-status--light" data-open-status>Open Wed–Sun</p>
       <div>
         <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-closed">CLOSED</span></div>
@@ -2508,8 +2897,7 @@ body::after{content:'';position:fixed;inset:0;z-index:95;pointer-events:none;
 <section id="contact">
   <div class="contact-inner">
     <div class="fade-up">
-      <p class="section-label light centered">Get In Touch</p>
-      <h2>Come Find Us</h2>
+      <div class="tm-row"><p class="section-label light centered">Get In Touch</p><h2>Come Find Us</h2></div>
       <p>Questions, events, or just want to say hello? Drop us a line.</p>
     </div>
     <form class="contact-form fade-up" style="transition-delay:.1s" onsubmit="return false">
@@ -2978,7 +3366,7 @@ window.addEventListener('scroll', () => {
     hero.style.setProperty('--bh-flow', (nav && !overlays ? nav.offsetHeight : 0) + 'px');
     canvas.width = Math.round(vw * dpr); canvas.height = Math.round(vh * dpr);
     var availH = vh - navH;
-    s = Math.min(availH * .96 / FH, vw * (mobile ? .56 : .34) / BURGER_W, 1.35);
+    s = Math.min(availH * (window.CAV_RX ? 1.22 : .96) / FH, vw * (mobile ? (window.CAV_RX ? .84 : .56) : (window.CAV_RX ? .44 : .34)) / BURGER_W, window.CAV_RX ? 1.7 : 1.35);
     cx0 = vw / 2; cy0 = navH + availH / 2 + (mobile ? availH * .03 : 0);
     stage.style.width = FW * s + 'px'; stage.style.height = FH * s + 'px';
     labels.forEach(function(el){
@@ -2995,7 +3383,7 @@ window.addEventListener('scroll', () => {
   var shown = -1, lastKey = '', lastSolid = '';
   function draw(frame, ox, oy){
     var f = nearest(frame); if (f < 0) return;
-    var key = f + '|' + ox.toFixed(1) + '|' + oy.toFixed(1) + '|' + canvas.width;
+    var key = f + '|' + ox.toFixed(1) + '|' + oy.toFixed(1) + '|' + canvas.width + (window.CAV_RX ? '|' + window.CAV_RX.key() : '');
     if (key === lastKey) return; lastKey = key; shown = f;
     var w = FW * s, h = FH * s, x = cx0 + ox - w / 2, y = cy0 + oy - h / 2;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -3004,6 +3392,7 @@ window.addEventListener('scroll', () => {
     var BD = window.CAV_BD;
     if (BD && BD.on()) {
       BD.paint(ctx, vw, vh, dpr, cx0, cy0, mobile, solid);
+      if (window.CAV_RX) window.CAV_RX.paint(ctx, vw, vh, x, y, w, h, mobile, navH);
       var kd = BD.key(imgs[f], f, c); if (kd.width) ctx.drawImage(kd, x, y, w, h);
       stage.style.transform = 'translate(' + (x) + 'px,' + (y) + 'px)';
       return;
@@ -3036,8 +3425,8 @@ window.addEventListener('scroll', () => {
   }
   function render(p){
     var glide = 1 - ease(range(p, .06, .20));
-    var ox = mobile ? 0 : glide * Math.min(vw * .2, 300);
-    var oy = mobile ? glide * vh * .05 : 0;
+    var ox = mobile || window.CAV_RX ? 0 : glide * Math.min(vw * .2, 300);
+    var oy = mobile && !window.CAV_RX ? glide * vh * .05 : 0;
     var io = 1 - range(p, .05, .13);
     intro.style.opacity = io; intro.style.transform = 'translateY(' + (-30 * (1 - io)) + 'px)';
     intro.style.visibility = io <= 0 ? 'hidden' : 'visible';
@@ -3220,6 +3609,264 @@ window.addEventListener('scroll', () => {
   }
   sw.querySelectorAll('button').forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.opt); var g = document.querySelector('[data-gx="' + b.dataset.opt + '"]') || document.querySelector('[data-gx-today]'); g && g.scrollIntoView(); }); });
   set(new URLSearchParams(location.search).get('gallery') || 'bays');
+})();
+</script>
+<script>
+/* ══ TYPE MOVES ══ */
+(function(){
+  var root = document.documentElement;
+  /* hours: short times and today's row (Wilson time) */
+  var rows = [].slice.call(document.querySelectorAll('#hours .hours-row'));
+  function short(s){ return s.replace(/:00/g, '').replace(/\s+/g, ' ')
+    .replace(/(\d+) (AM|PM) ?– ?(\d+) (AM|PM)/i,function(_, a, p, b, q){ return a + (p.toUpperCase() === q.toUpperCase() ? '' : ' ' + p.toLowerCase()) + '–' + b + ' ' + q.toLowerCase(); }); }
+  var day = ''; try { day = new Intl.DateTimeFormat('en-US', { weekday: 'long', timeZone: 'America/New_York' }).format(new Date()); } catch (e) {}
+  function hours(on){
+    rows.forEach(function(r){
+      var tm = r.querySelector('.hours-time'), d = r.querySelector('.hours-day');
+      if (tm) { if (!tm.dataset.orig) tm.dataset.orig = tm.textContent; tm.textContent = on ? short(tm.dataset.orig) : tm.dataset.orig; }
+      r.classList.toggle('tm-today', on && d && d.textContent.trim() === day);
+    });
+  }
+  function set(on){ root.classList.toggle('tm', on); hours(on);
+    document.querySelectorAll('.tm-switch [data-tm]').forEach(function(b){ b.setAttribute('aria-pressed', (b.dataset.tm === 'new') === on ? 'true' : 'false'); }); }
+  document.querySelectorAll('.tm-switch [data-tm]').forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.tm === 'new'); }); });
+  var q = new URLSearchParams(location.search).get('type');
+  set(q ? q !== 'today' : true);
+})();
+</script>
+<script>
+/* ══ THE FLIP ══ */
+(function(){
+  var root = document.documentElement, reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  function clamp(v, a, b){ return v < a ? a : v > b ? b : v; }
+  function range(p, a, b){ return clamp((p - a) / (b - a), 0, 1); }
+  function ease(t){ return t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2; }
+  function lerp(a, b, t){ return a + (b - a) * t; }
+  function mob(){ return innerWidth <= 768; }
+  function q(s, el){ return (el || document).querySelector(s); }
+  function qa(s, el){ return [].slice.call((el || document).querySelectorAll(s)); }
+  /* size a max-content block so it is w wide, but no taller than maxH */
+  function fit(el, w, maxH){ el.style.fontSize = '100px'; var sw = el.offsetWidth || 1, sh = el.offsetHeight || 1, s = 100 * w / sw; if (maxH) s = Math.min(s, 100 * maxH / sh); el.style.fontSize = s + 'px'; return s; }
+  var mods = {};
+
+  /* 1 · split-flap board */
+  (function(){
+    var el = q('.fx-flip'); if (!el) return;
+    var board = q('.fb', el), yr = q('.fb-yr b', el), was = q('.fb-was', el), tiles = [], mode = '';
+    function build(L){
+      board.innerHTML = ''; tiles = [];
+      var rows = L.a.length;
+      function row(s){ var pad = Math.floor((L.cols - s.length) / 2), out = ''; for (var i = 0; i < pad; i++) out += ' '; out += s; while (out.length < L.cols) out += ' '; return out; }
+      for (var r = 0; r < rows; r++){ var A = row(L.a[r]), B = row(L.b[r]);
+        for (var c = 0; c < L.cols; c++){
+          var t = document.createElement('span'); t.className = 'fb-t' + (L.acc.indexOf(r) > -1 ? ' acc' : '');
+          var cc = document.createElement('span'); cc.className = 'fb-c';
+          var fa = document.createElement('i'); fa.className = 'a'; fa.textContent = A[c] === ' ' ? '' : A[c];
+          var fb = document.createElement('i'); fb.className = 'b'; fb.textContent = B[c] === ' ' ? '' : B[c];
+          cc.appendChild(fa); cc.appendChild(fb); t.appendChild(cc); board.appendChild(t);
+          tiles.push({ c: cc, d: (c / (L.cols - 1)) * .6 + (r / rows) * .12, last: 1 });
+        } }
+    }
+    mods.flip = { el: el,
+      layout: function(){
+        var m = mob() ? 'm' : 'd';
+        var L = m === 'm' ? { cols: 8, a: ['OLD', 'SERVICE', 'GAS', 'STATION', ''], b: ["WILSON'S", 'BEST', 'BURGERS,', 'PIZZA &', 'WINGS'], acc: [2, 3, 4] }
+                          : { cols: 14, a: ['OLD SERVICE', 'GAS STATION', ''], b: ["WILSON'S BEST", 'BURGERS, PIZZA', '& WINGS'], acc: [1, 2] };
+        if (mode !== m) { build(L); mode = m; }
+        var body = board.parentNode, gap = m === 'm' ? 4 : 8, rows = L.a.length;
+        var twW = (body.clientWidth - (L.cols - 1) * gap) / L.cols, rowH = (body.clientHeight * .94 - (rows - 1) * gap) / rows, tw, tr;
+        if (rowH / twW >= 1.3) { tw = Math.floor(twW); tr = Math.min(rowH / twW, 1.7); } else { tw = Math.floor(rowH / 1.3); tr = 1.3; }
+        board.style.setProperty('--cols', L.cols); board.style.setProperty('--tw', tw + 'px'); board.style.setProperty('--tg', gap + 'px'); board.style.setProperty('--tr', tr.toFixed(3));
+      },
+      render: function(p){
+        var pp = range(p, .1, .88);
+        tiles.forEach(function(t){ var a = -180 * ease(clamp((pp - t.d) / .28, 0, 1)); if (a !== t.last) { t.c.style.transform = 'rotateX(' + a.toFixed(1) + 'deg)'; t.last = a; } });
+        yr.textContent = Math.round(1970 + 55 * ease(pp)); was.textContent = pp < .5 ? 'Amoco service station' : 'The Cavalier';
+      } };
+  })();
+
+  /* 2 · bay door */
+  (function(){
+    var el = q('.fx-door'); if (!el) return;
+    var pin = q('.fd-pin', el), up = q('.fd-up', el), dn = q('.fd-dn', el), box = q('.fd-box', el), old = q('.fd-old', el), cap = q('.fd-cap', el), w2 = q('.fd-w2', el), w2l = q('.fd-w2l', el), r0 = null, vw = 0, vh = 0;
+    mods.door = { el: el,
+      layout: function(){
+        vw = pin.clientWidth; vh = pin.clientHeight;
+        var m = mob(), nav = m ? 60 : 72, bot = m ? 72 : 0, avail = vh - nav - bot;
+        fit(up, vw * .94, avail * (m ? .24 : .2)); fit(dn, vw * .94, avail * (m ? .24 : .2));
+        var uh = up.offsetHeight, dh = dn.offsetHeight, ov = m ? 4 : Math.min(uh, dh) * .2;
+        var W = m ? vw * .8 : Math.min(vw * .4, 620), H = Math.min(W * (m ? .7 : .6), avail - uh - dh + 2 * ov - 16);
+        var total = uh + H + dh - 2 * ov, y0 = nav + (avail - total) / 2;
+        up.style.left = (vw - up.offsetWidth) / 2 + 'px'; up.style.top = y0 + 'px';
+        dn.style.left = (vw - dn.offsetWidth) / 2 + 'px'; dn.style.top = (y0 + uh - ov + H - ov) + 'px';
+        r0 = { l: (vw - W) / 2, t: y0 + uh - ov, w: W, h: H };
+        fit(w2l, vw * .9, avail * (m ? .62 : .58));
+      },
+      render: function(p){
+        if (!r0) return;
+        var g = ease(range(p, .1, .4));
+        box.style.left = lerp(r0.l, 0, g) + 'px'; box.style.top = lerp(r0.t, 0, g) + 'px';
+        box.style.width = lerp(r0.w, vw, g) + 'px'; box.style.height = lerp(r0.h, vh, g) + 'px';
+        box.style.setProperty('--fd-b', (10 * (1 - g)).toFixed(1) + 'px');
+        var d = ease(range(p, .5, .8)); old.style.transform = 'translateY(' + (-d * 104) + '%)';
+        cap.style.opacity = Math.min(range(p, .3, .42), 1 - range(p, .5, .58));
+        var s = range(p, .68, .86); w2.style.opacity = s; w2.style.transform = 'translateY(' + (28 * (1 - s)) + 'px)';
+      } };
+  })();
+
+  /* 3 · words that fill */
+  (function(){
+    var el = q('.fx-fill'); if (!el) return;
+    var wrap = q('.fw-wrap', el), words = qa('.fw', el).filter(function(w){ return !w.classList.contains('fw-dot'); }).map(function(w){
+      var g = w.closest('.fg'), chip = w.classList.contains('fw-food') && g ? q('.fw-chip', g) : null;
+      return { el: w, flip: w.classList.contains('fw-flip'), chip: chip, dot: chip && g ? q('.fw-dot', g) : null }; });
+    mods.fill = { el: el,
+      layout: function(){
+        var body = wrap.parentNode; wrap.classList.add('measure'); wrap.style.fontSize = '100px';
+        var s = 100 * Math.min(body.clientWidth * .97 / wrap.offsetWidth, body.clientHeight * .93 / wrap.offsetHeight);
+        wrap.style.fontSize = s + 'px'; wrap.classList.remove('measure');
+      },
+      render: function(p){
+        var pp = range(p, .06, .9), n = words.length;
+        words.forEach(function(w, i){
+          var l = clamp(pp * (n + .6) - i, 0, 1);
+          w.el.style.opacity = (.13 + .87 * l).toFixed(3);
+          if (w.flip) w.el.style.transform = 'rotateX(' + (180 * (1 - ease(l))).toFixed(1) + 'deg)';
+          if (w.chip) w.chip.style.setProperty('--o', ease(l).toFixed(3));
+          if (w.dot) w.dot.style.opacity = (.13 + .87 * l).toFixed(3);
+          w.el.classList.toggle('on', l > .5);
+        });
+      } };
+  })();
+
+  /* 4 · the drive past */
+  (function(){
+    var el = q('.fx-road'); if (!el) return;
+    var pin = q('.fr-pin', el), track = q('.fr-track', el), dash = q('.fr-dash', el), go = q('.fr-go', el), ext = 0;
+    mods.road = { el: el,
+      layout: function(){
+        if (el.classList.contains('fx-static')) { ext = 0; return; }
+        ext = Math.max(0, track.offsetWidth - pin.clientWidth);
+        el.style.height = Math.round(innerHeight + ext * .55) + 'px';
+      },
+      render: function(p){
+        track.style.transform = 'translate3d(' + (-p * ext).toFixed(1) + 'px,0,0)';
+        dash.style.backgroundPositionX = (-p * ext).toFixed(1) + 'px';
+        var a = range(p, .9, .97); go.style.opacity = a; go.style.visibility = a > .02 ? 'visible' : 'hidden';
+      } };
+  })();
+
+  /* 5 · simple */
+  (function(){
+    var el = q('.fx-simple'); if (!el) return;
+    var wrap = q('.fw-wrap', el);
+    mods.simple = { el: el,
+      layout: function(){ var body = wrap.parentNode; wrap.style.fontSize = '100px';
+        wrap.style.fontSize = 100 * Math.min(body.clientWidth * .97 / wrap.offsetWidth, body.clientHeight * .95 / wrap.offsetHeight) + 'px'; },
+      render: function(){} };
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) el.classList.add('in'); }); }, { threshold: .35 }).observe(el);
+    else el.classList.add('in');
+  })();
+
+  var cur = 'simple', sp = -1, dirty = true;
+  function layout(){
+    var m = mods[cur]; if (!m) return;
+    qa('.fx').forEach(function(s){ s.classList.toggle('fx-static', reduce.matches); });
+    m.layout(); dirty = true;
+  }
+  function tick(){
+    var m = mods[cur];
+    if (m) { var r = m.el.getBoundingClientRect();
+      if (r.bottom > -80 && r.top < innerHeight + 80) {
+        var tot = r.height - innerHeight, p = reduce.matches ? 1 : (tot > 0 ? clamp(-r.top / tot, 0, 1) : 0);
+        if (sp < 0 || reduce.matches) sp = p; else sp += (p - sp) * .2;
+        if (Math.abs(p - sp) < .0004) sp = p;
+        if (dirty || m.shown !== sp) { m.render(sp); m.shown = sp; dirty = false; }
+      } }
+    requestAnimationFrame(tick);
+  }
+  function set(k){
+    cur = k; sp = -1;
+    qa('[data-fx]').forEach(function(s){ s.style.display = s.dataset.fx === k ? '' : 'none'; });
+    qa('.fx-switch [data-fx-opt]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.fxOpt === k ? 'true' : 'false'); });
+    layout();
+  }
+  function ground(g){
+    if (g === 'dark') root.setAttribute('data-fxg', 'dark'); else root.removeAttribute('data-fxg');
+    qa('.fx-switch [data-fx-g]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.fxG === g ? 'true' : 'false'); });
+  }
+  qa('.fx-switch [data-fx-opt]').forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.fxOpt); var m = mods[cur]; if (m) scrollTo(0, m.el.getBoundingClientRect().top + scrollY); }); });
+  qa('.fx-switch [data-fx-g]').forEach(function(b){ b.addEventListener('click', function(){ ground(b.dataset.fxG); }); });
+  addEventListener('resize', layout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  addEventListener('load', layout);
+  reduce.addEventListener && reduce.addEventListener('change', layout);
+  if (q('.fx-switch')) root.classList.add('fx-prev');
+  var qs = new URLSearchParams(location.search);
+  ground(qs.get('ground') || 'dark'); set(qs.get('flip') || cur);
+  requestAnimationFrame(tick);
+})();
+</script>
+<script>
+/* ══ SECTION TRANSITIONS ══ */
+(function(){
+  var root = document.documentElement;
+  /* every place two different colours meet: [the section that starts there, colour above, colour below] */
+  var SEAMS = [['.fx', '#F5F0E6', '#111110'], ['#menu', '#111110', '#F5F0E6'], ['#find-us', '#F5F0E6', '#6B1523'], ['.gx', '#6B1523', '#F5F0E6'],
+               ['.timeline-bar', '#F5F0E6', '#6B1523'], ['.about-soul', '#6B1523', '#F5F0E6'], ['#contact', '#EDE8DC', '#141412'], ['footer', '#141412', '#4A0D17']];
+  var n = 0;
+  SEAMS.forEach(function(s){
+    var el = document.querySelector(s[0]); if (!el || getComputedStyle(el).display === 'none') return;
+    var d = document.createElement('div'); d.className = 'sx' + (n % 2 ? ' alt' : '') + (s[0] === 'footer' ? ' sx-foot' : ''); d.setAttribute('aria-hidden', 'true');
+    d.style.setProperty('--a', s[1]); d.style.setProperty('--b', s[2]);
+    el.parentNode.insertBefore(d, el); n++;
+  });
+  /* slide in */
+  var HOLD = ['#hero', '.fx', '#menu', '#find-us', '.gx', '.timeline-bar', '#hours'];
+  var blocks = [], e = document.getElementById('hero'), z = 1;
+  while (e) { if (e.tagName !== 'SCRIPT' && e.tagName !== 'STYLE' && !/fixed/.test(getComputedStyle(e).position) && !e.classList.contains('sx-switch')) blocks.push(e); if (e.tagName === 'FOOTER') break; e = e.nextElementSibling; }
+  blocks.forEach(function(b){ b.classList.add('sl-z'); b.style.setProperty('--sl-z', z); z += 2;
+    if (!b.classList.contains('sx') && b.id) { var m = document.createElement('span'); m.className = 'sl-mark'; m.dataset.for = b.id; var at = b.previousElementSibling && b.previousElementSibling.classList.contains('sx') ? b.previousElementSibling : b; at.parentNode.insertBefore(m, at); } });
+  HOLD.forEach(function(sel){ var el = document.querySelector(sel); if (el) el.classList.add('sl-hold'); });
+  /* the footer sits just under the last section, and only shows once that section fully covers it */
+  var foot = document.querySelector('footer'), last = document.getElementById('contact');
+  if (foot && last) foot.style.setProperty('--sl-fz', (+last.style.getPropertyValue('--sl-z') || 2) - 1);
+  function footShow(){ if (foot && last) foot.classList.toggle('sl-show', last.getBoundingClientRect().top <= innerHeight - foot.offsetHeight); }
+  addEventListener('scroll', footShow, { passive: true }); addEventListener('resize', footShow); footShow();
+  function navH(){ return innerWidth <= 768 ? 60 : 72; }
+  function tops(){ document.querySelectorAll('.sl-hold').forEach(function(el){ el.style.setProperty('--sl-top', Math.min(navH(), innerHeight - el.offsetHeight) + 'px'); }); }
+  function slide(on){
+    if (on) root.setAttribute('data-sl', '1'); else root.removeAttribute('data-sl');
+    document.querySelectorAll('.sx-switch [data-sl-opt]').forEach(function(b){ b.setAttribute('aria-pressed', (b.dataset.slOpt === '1') === on ? 'true' : 'false'); });
+    tops(); window.dispatchEvent(new Event('resize'));
+  }
+  addEventListener('resize', tops); addEventListener('load', tops);
+  /* a held section reports where it is stuck, not where it lives, so links to it are sent to its marker instead */
+  document.addEventListener('click', function(ev){
+    if (!root.hasAttribute('data-sl')) return;
+    var a = ev.target.closest && ev.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href').slice(1); if (!id) return;
+    var m = document.querySelector('.sl-mark[data-for="' + id + '"]'); if (!m) return;
+    ev.preventDefault();
+    var sx = 0;
+    window.scrollTo({ top: Math.max(0, m.offsetTop + sx - navH() + 2), behavior: 'smooth' });
+  }, true);
+  function set(k){
+    if (k === 'off') root.removeAttribute('data-sx'); else root.setAttribute('data-sx', k);
+    document.querySelectorAll('.sx-switch [data-sx-opt]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.sxOpt === k ? 'true' : 'false'); });
+    window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.sx-switch [data-sx-opt]').forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.sxOpt); }); });
+  document.querySelectorAll('.sx-switch [data-sl-opt]').forEach(function(b){ b.addEventListener('click', function(){ slide(b.dataset.slOpt === '1'); }); });
+  function fit(k){
+    if (k === '0') root.removeAttribute('data-fit'); else root.setAttribute('data-fit', k);
+    document.querySelectorAll('.sx-switch [data-fit-opt]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.fitOpt === k ? 'true' : 'false'); });
+    tops(); window.dispatchEvent(new Event('resize'));
+  }
+  document.querySelectorAll('.sx-switch [data-fit-opt]').forEach(function(b){ b.addEventListener('click', function(){ fit(b.dataset.fitOpt); }); });
+  fit(new URLSearchParams(location.search).get('fit') || '2');
+  var qs = new URLSearchParams(location.search);
+  set(qs.get('seam') || 'curve'); slide((qs.get('slide') || '1') === '1');
 })();
 </script>
 </body></html>
